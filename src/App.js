@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import Menu from "./pages/Menu";
 import Home from "./pages/Home";
+import CreateNew from "./pages/CreateNew";
 function App() {
   return (
     <Router>
@@ -14,6 +15,9 @@ function App() {
         <Switch>
           <Route path="/menu">
             <Menu />
+          </Route>
+          <Route path="/create">
+            <CreateNew />
           </Route>
           <Route path="/home">
             <Home />
