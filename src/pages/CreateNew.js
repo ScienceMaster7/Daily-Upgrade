@@ -5,6 +5,7 @@ export default function CreateNew() {
 
     const form = event.target;
     const newHabbit = form.newHabbit.value;
+
     const habbitList = localStorage.getItem("habbits");
 
     if (habbitList !== null) {
@@ -30,6 +31,7 @@ export default function CreateNew() {
             id="newHabbit"
             placeholder="New Habbit"
             autoComplete="off"
+            required={true}
           />
           <button type="submit">Add</button>
         </form>
