@@ -1,6 +1,7 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import "./CreateNew.css";
+
 export default function CreateNew() {
   function handleOnSubmit(event) {
     event.preventDefault();
