@@ -1,4 +1,3 @@
-import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { useParams } from "react-router-dom";
 import "./SingleSkill.css";
@@ -7,7 +6,6 @@ export default function SingleSkill() {
   const { habbit } = useParams();
   return (
     <>
-      <Header />
       <main className="SingleSkill__main">
         <h2 className="SingleSkill__habbit">{habbit}</h2>
         <form className="SingleSkill__form">

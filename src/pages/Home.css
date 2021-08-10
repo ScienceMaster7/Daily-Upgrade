@@ -3,7 +3,7 @@
   flex-wrap: wrap;
   justify-content: center;
   background-color: var(--main-bg-color);
-  height: 94vh;
+  min-height: 95vh;
 }
 
 .Home__link {
