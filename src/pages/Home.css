@@ -1,0 +1,19 @@
+.main-home {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: var(--main-bg-color);
+  height: 94vh;
+}
+
+.habbitButton {
+  background-color: var(--primary-color);
+  color: var(--primary-text-color);
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  border-style: initial;
+  padding: 2rem;
+  margin: 1rem;
+  font-size: 20px;
+}

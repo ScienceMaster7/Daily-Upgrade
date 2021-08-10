@@ -1,0 +1,17 @@
+.header {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: var(--header-color);
+}
+.link {
+  text-decoration: none;
+}
+.menuIcon {
+  font-size: 2rem;
+  color: black;
+}
+
+.heading {
+  color: var(--sencodary-text-color);
+}
