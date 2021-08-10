@@ -10,9 +10,7 @@ export default function Header() {
       <Link to="/menu" className="link">
         <FontAwesomeIcon icon={faBars} className="menuIcon" />
       </Link>
-      <Link to="/home" className="link">
-        <h1 className="heading">Daily Upgrade</h1>
-      </Link>
+      <h1 className="heading">Daily Upgrade</h1>
     </header>
   );
 }
