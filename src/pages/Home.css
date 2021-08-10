@@ -6,6 +6,10 @@
   height: 94vh;
 }
 
+.Home__link {
+  text-decoration: none;
+}
+
 .Home__button {
   background-color: var(--primary-color);
   color: var(--primary-text-color);
@@ -16,6 +20,7 @@
   padding: 2rem;
   margin: 1rem;
   font-size: 1.5rem;
+  cursor: pointer;
 }
 
 .Home__text--no-habbits {

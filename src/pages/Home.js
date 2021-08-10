@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import "./Home.css";
 
@@ -8,9 +9,9 @@ export default function Home() {
     if (habbits !== null) {
       const renderedhabbits = habbits.map((habbit, index) => {
         return (
-          <button className="Home__button" key={index}>
-            {habbit}
-          </button>
+          <Link key={index} to={`/${habbit}`} className="Home__link">
+            <button className="Home__button">{habbit}</button>
+          </Link>
         );
       });
       return renderedhabbits;

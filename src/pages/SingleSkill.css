@@ -1,0 +1,10 @@
+.SingleSkill__main {
+  background-color: var(--main-bg-color);
+  height: 94vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.SingleSkill__habbit {
+  margin: 1rem;
+}
