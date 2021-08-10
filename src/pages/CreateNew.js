@@ -26,7 +26,7 @@ export default function CreateNew() {
   return (
     <>
       <Header />
-      <main className="main-createNew">
+      <main className="CreateNew__main">
         <form onSubmit={handleOnSubmit}>
           <input
             type="text"
@@ -36,7 +36,7 @@ export default function CreateNew() {
             autoComplete="off"
             required={true}
           />
-          <button className="buttonAdd" type="submit">
+          <button className="CreateNew__button" type="submit">
             Add
           </button>
         </form>

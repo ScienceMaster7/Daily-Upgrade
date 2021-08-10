@@ -1,9 +1,13 @@
-.main-menu {
+.Menu__main {
   background-color: var(--main-bg-color);
   height: 94vh;
 }
 
-.menuItem {
+.Menu__link {
+  text-decoration: none;
+}
+
+.Menu__button {
   background-color: var(--primary-color);
   color: var(--primary-text-color);
   font-size: 25px;

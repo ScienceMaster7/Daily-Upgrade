@@ -1,4 +1,4 @@
-.main-home {
+.Home__main {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -6,7 +6,11 @@
   height: 94vh;
 }
 
-.habbitButton {
+.Home__link {
+  text-decoration: none;
+}
+
+.Home__button {
   background-color: var(--primary-color);
   color: var(--primary-text-color);
   height: 150px;
@@ -15,10 +19,11 @@
   border-style: initial;
   padding: 2rem;
   margin: 1rem;
-  font-size: 20px;
+  font-size: 1.5rem;
+  cursor: pointer;
 }
 
-.infoNoHabbits {
+.Home__text--no-habbits {
   align-self: center;
   margin: 1rem;
   font-size: 2rem;

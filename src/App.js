@@ -8,6 +8,7 @@ import {
 import Menu from "./pages/Menu";
 import Home from "./pages/Home";
 import CreateNew from "./pages/CreateNew";
+import SingleSkill from "./pages/SingleSkill";
 function App() {
   return (
     <Router>
@@ -21,6 +22,9 @@ function App() {
           </Route>
           <Route path="/home">
             <Home />
+          </Route>
+          <Route path="/:habbit">
+            <SingleSkill />
           </Route>
           <Route path="/">
             <Redirect to="/home" />
