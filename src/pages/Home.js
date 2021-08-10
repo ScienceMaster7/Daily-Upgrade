@@ -7,8 +7,12 @@ export default function Home() {
     const habbits = JSON.parse(localStorage.getItem("habbits"));
 
     if (habbits !== null) {
-      const renderedhabbits = habbits.map((habbit) => {
-        return <button>{habbit}</button>;
+      const renderedhabbits = habbits.map((habbit, index) => {
+        return (
+          <button className="habbitButton" key={index}>
+            {habbit}
+          </button>
+        );
       });
       return renderedhabbits;
     } else {
