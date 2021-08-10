@@ -1,4 +1,5 @@
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 export default function CreateNew() {
   function handleOnSubmit(event) {
     event.preventDefault();
@@ -36,6 +37,7 @@ export default function CreateNew() {
           <button type="submit">Add</button>
         </form>
       </main>
+      <Footer />
     </>
   );
 }

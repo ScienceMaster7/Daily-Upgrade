@@ -1,5 +1,4 @@
 import Header from "../components/Header";
-import Footer from "../components/Footer";
 import "./Home.css";
 import "../components/colors.css";
 
@@ -18,10 +17,10 @@ export default function Home() {
       return renderedhabbits;
     } else {
       return (
-        <h2>
+        <p className="infoFirstVisit">
           There are no habbits stored. You can find the Create New section in
           the Menu to create your first habbit.
-        </h2>
+        </p>
       );
     }
   }
