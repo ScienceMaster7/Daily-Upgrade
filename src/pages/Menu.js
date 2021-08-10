@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 import "./Menu.css";
-import "../components/colors.css";
 
 export default function Menu() {
   return (
@@ -12,6 +12,7 @@ export default function Menu() {
           <button className="menuItem">Create New</button>
         </NavLink>
       </main>
+      <Footer />
     </>
   );
 }

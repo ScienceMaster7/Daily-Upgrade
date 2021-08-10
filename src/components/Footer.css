@@ -1,0 +1,14 @@
+.Footer {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  justify-content: center;
+  background-color: var(--footer-color);
+  width: 100%;
+  padding: 10px;
+}
+
+.Footer__homeIcon {
+  color: var(--sencodary-text-color);
+  font-size: 2rem;
+}
