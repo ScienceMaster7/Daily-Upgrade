@@ -1,4 +1,3 @@
-import Header from "../components/Header";
 import Footer from "../components/Footer";
 import "./CreateNew.css";
 
@@ -25,7 +24,6 @@ export default function CreateNew() {
   }
   return (
     <>
-      <Header />
       <main className="CreateNew__main">
         <form onSubmit={handleOnSubmit}>
           <input
