@@ -1,3 +1,16 @@
 .main-menu {
   background-color: var(--main-bg-color);
+  height: 94vh;
+}
+
+.menuItem {
+  background-color: var(--primary-color);
+  color: var(--primary-text-color);
+  font-size: 25px;
+  font-weight: bold;
+  margin: 20px;
+  padding: 15px 60px;
+  border-radius: 10px;
+  border-style: initial;
+  cursor: pointer;
 }
