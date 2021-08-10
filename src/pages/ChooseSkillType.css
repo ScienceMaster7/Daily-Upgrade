@@ -1,0 +1,18 @@
+.ChooseSkillType__main {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--main-bg-color);
+  min-height: 94vh;
+}
+
+.ChooseSkillType__button {
+  background-color: var(--primary-color);
+  color: var(--primary-text-color);
+  font-size: 25px;
+  font-weight: bold;
+  margin: 20px;
+  padding: 15px 60px;
+  border-radius: 10px;
+  border-style: initial;
+  cursor: pointer;
+}

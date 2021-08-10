@@ -1,7 +1,7 @@
 import Footer from "../components/Footer";
-import "./CreateNew.css";
+import "./CreateMultiSkill.css";
 
-export default function CreateNew() {
+export default function CreateMultiSkill() {
   function handleOnSubmit(event) {
     event.preventDefault();
 

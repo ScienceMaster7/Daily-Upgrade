@@ -8,8 +8,10 @@ import {
 } from "react-router-dom";
 import Menu from "./pages/Menu";
 import Home from "./pages/Home";
-import CreateNew from "./pages/CreateNew";
+import CreateSingleSkill from "./pages/CreateSingleSkill";
+import CreateMultiSkill from "./pages/CreateMultiSkill";
 import SingleSkill from "./pages/SingleSkill";
+import ChooseSkillType from "./pages/ChooseSkillType";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 function App() {
@@ -23,14 +25,20 @@ function App() {
           <h1 className="Header__heading">Daily Upgrade</h1>
         </header>
         <Switch>
+          <Route path="/home">
+            <Home />
+          </Route>
           <Route path="/menu">
             <Menu />
           </Route>
           <Route path="/create">
-            <CreateNew />
+            <ChooseSkillType />
           </Route>
-          <Route path="/home">
-            <Home />
+          <Route path="/single">
+            <CreateSingleSkill />
+          </Route>
+          <Route path="/multi">
+            <CreateMultiSkill />
           </Route>
           <Route path="/:habbit">
             <SingleSkill />

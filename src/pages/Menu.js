@@ -7,7 +7,7 @@ export default function Menu() {
     <>
       <main className="Menu__main">
         <NavLink to="/create" className="Menu__link">
-          <button className="Menu__button">Create New</button>
+          <button className="Menu__button">Add New Skill</button>
         </NavLink>
       </main>
       <Footer />
