@@ -1,17 +1,17 @@
-.header {
+.Header {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   background-color: var(--header-color);
 }
-.link {
+.Header__link {
   text-decoration: none;
 }
-.menuIcon {
+.Header__menuIcon {
   font-size: 2rem;
   color: black;
 }
 
-.heading {
+.Header__heading {
   color: var(--sencodary-text-color);
 }

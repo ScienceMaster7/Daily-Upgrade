@@ -6,11 +6,11 @@ import "./colors.css";
 
 export default function Header() {
   return (
-    <header className="header">
-      <Link to="/menu" className="link">
-        <FontAwesomeIcon icon={faBars} className="menuIcon" />
+    <header className="Header">
+      <Link to="/menu" className="Header__link">
+        <FontAwesomeIcon icon={faBars} className="Header__menuIcon" />
       </Link>
-      <h1 className="heading">Daily Upgrade</h1>
+      <h1 className="Header__heading">Daily Upgrade</h1>
     </header>
   );
 }

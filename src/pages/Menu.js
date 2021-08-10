@@ -7,9 +7,9 @@ export default function Menu() {
   return (
     <>
       <Header />
-      <main className="main-menu">
-        <NavLink to="/create" className="link">
-          <button className="menuItem">Create New</button>
+      <main className="Menu__main">
+        <NavLink to="/create" className="Menu__link">
+          <button className="Menu__button">Create New</button>
         </NavLink>
       </main>
       <Footer />

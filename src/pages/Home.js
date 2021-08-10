@@ -8,7 +8,7 @@ export default function Home() {
     if (habbits !== null) {
       const renderedhabbits = habbits.map((habbit, index) => {
         return (
-          <button className="habbitButton" key={index}>
+          <button className="Home__button" key={index}>
             {habbit}
           </button>
         );
@@ -16,7 +16,7 @@ export default function Home() {
       return renderedhabbits;
     } else {
       return (
-        <p className="infoNoHabbits">
+        <p className="Home__text--no-habbits">
           There are no habbits stored. You can find the Create New section in
           the Menu to create your first habbit.
         </p>
@@ -26,7 +26,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main className="main-home">
+      <main className="Home__main">
         <RenderHabbits />
       </main>
     </>
