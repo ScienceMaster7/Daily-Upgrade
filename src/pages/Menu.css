@@ -15,6 +15,6 @@
   margin: 20px;
   padding: 15px 60px;
   border-radius: 10px;
-  border-style: initial;
+  border-style: unset;
   cursor: pointer;
 }

@@ -3,18 +3,21 @@
 }
 .Header {
   display: flex;
-  justify-content: space-evenly;
   align-items: center;
+  justify-content: space-evenly;
   background-color: var(--header-color);
 }
 .Header__link {
+  width: fit-content;
   text-decoration: none;
 }
 .Header__menuIcon {
-  font-size: 2rem;
-  color: black;
+  margin: 0.5rem;
+  font-size: var(--big-text);
+  color: var(--sencodary-text-color);
 }
 
 .Header__heading {
-  color: var(--sencodary-text-color);
+  margin: 0.5rem;
+  color: var(--primary-color);
 }

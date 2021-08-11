@@ -1,10 +1,34 @@
 .Habit__main {
   background-color: var(--main-bg-color);
-  height: 94vh;
+  min-height: 95vh;
   display: flex;
   flex-direction: column;
 }
 
 .Habit__title {
+  font-size: var(--normal-text);
+  color: var(--primary-color);
   margin: 1rem;
+}
+
+.Habit__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Habit__input {
+  font-size: var(--normal-text);
+  text-align: center;
+  padding: 0.5rem 0;
+}
+
+.Habit__button {
+  margin: 1rem;
+  padding: 0.5rem;
+  font-size: var(--normal-text);
+  background-color: var(--primary-color);
+  color: var(--primary-text-color);
+  border-style: unset;
+  border-radius: 10px;
 }
