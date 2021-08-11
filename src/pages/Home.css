@@ -3,7 +3,8 @@
   flex-wrap: wrap;
   justify-content: center;
   background-color: var(--main-bg-color);
-  min-height: 95vh;
+  min-height: 96vh;
+  overflow-y: scroll;
 }
 
 .Home__link {
