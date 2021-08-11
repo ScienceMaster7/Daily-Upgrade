@@ -8,8 +8,8 @@ import {
 } from "react-router-dom";
 import Menu from "./pages/Menu";
 import Home from "./pages/Home";
-import CreateSingleSkill from "./pages/CreateSingleSkill";
-import CreateMultiSkill from "./pages/CreateMultiSkill";
+import CreateHabit from "./pages/CreateHabit";
+import CreateHabitSubSkill from "./pages/CreateHabitSubSkill";
 import SingleSkill from "./pages/SingleSkill";
 import ChooseSkillType from "./pages/ChooseSkillType";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -35,10 +35,10 @@ function App() {
             <ChooseSkillType />
           </Route>
           <Route path="/single">
-            <CreateSingleSkill />
+            <CreateHabit />
           </Route>
           <Route path="/multi">
-            <CreateMultiSkill />
+            <CreateHabitSubSkill />
           </Route>
           <Route path="/:habbit">
             <SingleSkill />

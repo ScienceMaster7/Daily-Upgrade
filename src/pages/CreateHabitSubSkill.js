@@ -1,7 +1,7 @@
 import Footer from "../components/Footer";
-import "./CreateSingleSkill.css";
+import "./CreateHabitSubSkill.css";
 
-export default function CreateSingleSkill() {
+export default function CreateHabitSubSkill() {
   function handleOnSubmit(event) {
     event.preventDefault();
 
@@ -24,7 +24,7 @@ export default function CreateSingleSkill() {
   }
   return (
     <>
-      <main className="CreateNew__main">
+      <main className="CreateHabitSubSkill__main">
         <form onSubmit={handleOnSubmit}>
           <input
             type="text"
@@ -34,7 +34,7 @@ export default function CreateSingleSkill() {
             autoComplete="off"
             required={true}
           />
-          <button className="CreateNew__button" type="submit">
+          <button className="CreateHabitSubSkill__button" type="submit">
             Add
           </button>
         </form>
