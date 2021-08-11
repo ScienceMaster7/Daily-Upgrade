@@ -1,9 +1,24 @@
-.CreateNew__main {
+.CreateHabit__main {
   background-color: var(--main-bg-color);
   min-height: 95vh;
   overflow-y: scroll;
 }
+.CreateHabit__form {
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-.CreateNew__button {
+.CreateHabit__input {
+  margin-top: 2rem;
+  text-align: center;
+  padding: 5px;
+  width: 75%;
+}
+
+.CreateHabit__button {
+  margin-top: 1rem;
   cursor: pointer;
+  padding: 0.5rem;
 }

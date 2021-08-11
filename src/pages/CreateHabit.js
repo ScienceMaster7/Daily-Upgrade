@@ -24,9 +24,10 @@ export default function CreateHabit() {
   }
   return (
     <>
-      <main className="CreateNew__main">
-        <form onSubmit={handleOnSubmit}>
+      <main className="CreateHabit__main">
+        <form className="CreateHabit__form" onSubmit={handleOnSubmit}>
           <input
+            className="CreateHabit__input"
             type="text"
             name="newHabbit"
             id="newHabbit"
@@ -34,7 +35,7 @@ export default function CreateHabit() {
             autoComplete="off"
             required={true}
           />
-          <button className="CreateNew__button" type="submit">
+          <button className="CreateHabit__button" type="submit">
             Add
           </button>
         </form>
