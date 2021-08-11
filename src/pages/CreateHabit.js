@@ -6,17 +6,31 @@ export default function CreateHabit() {
     event.preventDefault();
 
     const form = event.target;
-    const newHabbit = form.newHabbit.value;
+    const newHabitName = form.newHabbit.value;
+    const newHabit = { name: newHabitName, timeCount: 0 };
 
     const habbitList = localStorage.getItem("habbits");
 
     if (habbitList !== null) {
+      let validated = true;
+
       const storedhabbits = JSON.parse(habbitList);
-      storedhabbits.push(newHabbit);
-      localStorage.setItem("habbits", JSON.stringify(storedhabbits));
+
+      storedhabbits.forEach((habit) => {
+        if (habit.name === newHabitName) {
+          validated = false;
+        }
+      });
+
+      if (validated) {
+        storedhabbits.push(newHabit);
+        localStorage.setItem("habbits", JSON.stringify(storedhabbits));
+      } else {
+        alert("You already created this habit");
+      }
     } else {
       const storedhabbits = [];
-      storedhabbits.push(newHabbit);
+      storedhabbits.push(newHabit);
       localStorage.setItem("habbits", JSON.stringify(storedhabbits));
     }
 
