@@ -9,9 +9,7 @@ import {
 import Menu from "./pages/Menu";
 import Home from "./pages/Home";
 import CreateHabit from "./pages/CreateHabit";
-import CreateHabitSubSkill from "./pages/CreateHabitSubSkill";
-import SingleSkill from "./pages/SingleSkill";
-import ChooseSkillType from "./pages/ChooseSkillType";
+import Habit from "./pages/Habit";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 function App() {
@@ -32,16 +30,10 @@ function App() {
             <Menu />
           </Route>
           <Route path="/create">
-            <ChooseSkillType />
-          </Route>
-          <Route path="/single">
             <CreateHabit />
           </Route>
-          <Route path="/multi">
-            <CreateHabitSubSkill />
-          </Route>
           <Route path="/:habbit">
-            <SingleSkill />
+            <Habit />
           </Route>
           <Route path="/">
             <Redirect to="/home" />
