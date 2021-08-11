@@ -11,13 +11,18 @@
 }
 
 .CreateHabit__input {
+  font-size: var(--normal-text);
   margin-top: 2rem;
   text-align: center;
-  padding: 5px;
-  width: 75%;
+  padding: 5px 0;
 }
 
 .CreateHabit__button {
+  color: var(--primary-text-color);
+  font-size: var(--normal-text);
+  background-color: var(--primary-color);
+  border-radius: 10px;
+  border-style: unset;
   margin-top: 1rem;
   cursor: pointer;
   padding: 0.5rem;

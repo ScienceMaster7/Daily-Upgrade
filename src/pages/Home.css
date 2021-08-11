@@ -8,6 +8,7 @@
 }
 
 .Home__link {
+  height: fit-content;
   text-decoration: none;
 }
 
@@ -20,12 +21,12 @@
   border-style: initial;
   padding: 2rem;
   margin: 1rem;
-  font-size: 1.5rem;
+  font-size: var(--normal-text);
   cursor: pointer;
 }
 
 .Home__text--no-habbits {
   align-self: center;
   margin: 1rem;
-  font-size: 2rem;
+  font-size: var(--big-text);
 }
