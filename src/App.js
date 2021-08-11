@@ -8,8 +8,8 @@ import {
 } from "react-router-dom";
 import Menu from "./pages/Menu";
 import Home from "./pages/Home";
-import CreateNew from "./pages/CreateNew";
-import SingleSkill from "./pages/SingleSkill";
+import CreateHabit from "./pages/CreateHabit";
+import Habit from "./pages/Habit";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 function App() {
@@ -23,17 +23,17 @@ function App() {
           <h1 className="Header__heading">Daily Upgrade</h1>
         </header>
         <Switch>
+          <Route path="/home">
+            <Home />
+          </Route>
           <Route path="/menu">
             <Menu />
           </Route>
           <Route path="/create">
-            <CreateNew />
-          </Route>
-          <Route path="/home">
-            <Home />
+            <CreateHabit />
           </Route>
           <Route path="/:habbit">
-            <SingleSkill />
+            <Habit />
           </Route>
           <Route path="/">
             <Redirect to="/home" />

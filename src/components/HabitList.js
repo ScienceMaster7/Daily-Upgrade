@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function Habbits() {
+export default function HabitList() {
   const habbits = JSON.parse(localStorage.getItem("habbits"));
 
   if (habbits !== null) {
