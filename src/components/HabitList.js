@@ -6,8 +6,8 @@ export default function HabitList() {
   if (habbits !== null) {
     const renderedHabbits = habbits.map((habbit, index) => {
       return (
-        <Link key={index} to={`/${habbit}`} className="Home__link">
-          <button className="Home__button">{habbit}</button>
+        <Link key={index} to={`/${habbit.name}`} className="Home__link">
+          <button className="Home__button">{habbit.name}</button>
         </Link>
       );
     });
