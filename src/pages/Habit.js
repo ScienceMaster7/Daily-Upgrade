@@ -10,8 +10,7 @@ export default function Habit() {
     event.preventDefault();
 
     const form = event.target;
-    let hours = form.hours.value;
-    hours = Number(hours) * 60;
+    const hours = Number(form.hours.value) * 60;
     const minutes = form.minutes.value;
     const time = hours + Number(minutes);
 
