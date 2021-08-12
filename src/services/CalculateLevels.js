@@ -25,6 +25,9 @@ export default function CalculateLevels(currentLevel, timeCount) {
   let currentLevelTime = timeCount - timePreviousLevels;
 
   while (true) {
+    if (level === 1000) {
+      return level;
+    }
     if (level < 5) {
       const requiredTime = (level + 1) * 60;
       if (currentLevelTime >= requiredTime) {
