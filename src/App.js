@@ -32,7 +32,7 @@ function App() {
           <Route path="/create">
             <CreateHabit />
           </Route>
-          <Route path="/:habbit">
+          <Route path="/:singlehabit">
             <Habit />
           </Route>
           <Route path="/">

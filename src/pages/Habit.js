@@ -3,17 +3,36 @@ import { useParams } from "react-router-dom";
 import "./Habit.css";
 
 export default function Habit() {
-  const { habbit } = useParams();
+  const { singlehabit } = useParams();
 
-  // function log(event) {
-  //   const value = event.target.value;
-  //   console.log(value);
-  // }
+  function handleOnSubmit(event) {
+    event.preventDefault();
+
+    const form = event.target;
+    let hours = form.hours.value;
+    hours = Number(hours) * 60;
+    const minutes = form.minutes.value;
+    const time = hours + Number(minutes);
+
+    const habitList = localStorage.getItem("habits");
+    const habits = JSON.parse(habitList);
+
+    const updatedHabits = habits.map((habit) => {
+      if (habit.name === singlehabit) {
+        return { name: habit.name, timeCount: habit.timeCount + time };
+      } else {
+        return habit;
+      }
+    });
+
+    localStorage.setItem("habits", JSON.stringify(updatedHabits));
+    form.reset();
+  }
   return (
     <>
       <main className="Habit__main">
-        <h2 className="Habit__title">{habbit}</h2>
-        <form className="Habit__form">
+        <h2 className="Habit__title">{singlehabit}</h2>
+        <form onSubmit={handleOnSubmit} className="Habit__form">
           <section className="Habit__time">
             <div>
               <label className="Habit__label" htmlFor="hours">
@@ -48,14 +67,6 @@ export default function Habit() {
               />
             </div>
           </section>
-          {/* <input
-            onChange={log}
-            type="range"
-            name="hours"
-            id="hours"
-            min="0"
-            max="23"
-          /> */}
           <button type="submit" className="Habit__button">
             Submit
           </button>

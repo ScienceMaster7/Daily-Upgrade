@@ -6,10 +6,10 @@ export default function CreateHabit() {
     event.preventDefault();
 
     const form = event.target;
-    const newHabitName = form.newHabbit.value;
+    const newHabitName = form.newHabit.value;
     const newHabit = { name: newHabitName, timeCount: 0 };
 
-    const habbitList = localStorage.getItem("habbits");
+    const habbitList = localStorage.getItem("habits");
 
     if (habbitList !== null) {
       let validated = true;
@@ -24,14 +24,14 @@ export default function CreateHabit() {
 
       if (validated) {
         storedhabbits.push(newHabit);
-        localStorage.setItem("habbits", JSON.stringify(storedhabbits));
+        localStorage.setItem("habits", JSON.stringify(storedhabbits));
       } else {
         alert("You already created this habit");
       }
     } else {
       const storedhabbits = [];
       storedhabbits.push(newHabit);
-      localStorage.setItem("habbits", JSON.stringify(storedhabbits));
+      localStorage.setItem("habits", JSON.stringify(storedhabbits));
     }
 
     form.reset();
@@ -43,9 +43,9 @@ export default function CreateHabit() {
           <input
             className="CreateHabit__input"
             type="text"
-            name="newHabbit"
-            id="newHabbit"
-            placeholder="New Habbit"
+            name="newHabit"
+            id="newHabit"
+            placeholder="New Habit"
             autoComplete="off"
             required={true}
           />
