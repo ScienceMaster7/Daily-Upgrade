@@ -1,4 +1,4 @@
-export default function Level(currentLevel, timeCount) {
+export default function CalculateLevels(currentLevel, timeCount) {
   let timePreviousLevels = 0;
   let level = currentLevel;
 

@@ -1,7 +1,7 @@
 import Footer from "../components/Footer";
 import { useParams } from "react-router-dom";
 import "./Habit.css";
-import Level from "../components/Level";
+import CalculateLevels from "../services/CalculateLevels";
 
 export default function Habit() {
   const { singlehabit } = useParams();
@@ -22,7 +22,7 @@ export default function Habit() {
       if (habit.name === singlehabit) {
         const updatedTimeCount = habit.timeCount + time;
         const currentLevel = habit.level;
-        const updatedLevel = Level(currentLevel, updatedTimeCount);
+        const updatedLevel = CalculateLevels(currentLevel, updatedTimeCount);
         return {
           name: habit.name,
           timeCount: updatedTimeCount,
