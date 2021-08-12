@@ -52,7 +52,7 @@ export default function Habit() {
                 id="hours"
                 autoComplete="off"
                 min="0"
-                max="20"
+                max="10000"
                 placeholder="3"
                 required={true}
               />
