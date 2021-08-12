@@ -1,10 +1,10 @@
 import Footer from "../components/Footer";
 import { useParams } from "react-router-dom";
 import "./Habit.css";
-import CalculateLevels from "../services/CalculateLevels";
+import calculateLevels from "../services/calculateLevels";
 
 export default function Habit() {
-  const { singlehabit } = useParams();
+  const { habitname } = useParams();
 
   function handleOnSubmit(event) {
     event.preventDefault();
@@ -19,10 +19,10 @@ export default function Habit() {
     const habits = JSON.parse(habitList);
 
     const updatedHabits = habits.map((habit) => {
-      if (habit.name === singlehabit) {
+      if (habit.name === habitname) {
         const updatedTimeCount = habit.timeCount + time;
         const currentLevel = habit.level;
-        const updatedLevel = CalculateLevels(currentLevel, updatedTimeCount);
+        const updatedLevel = calculateLevels(currentLevel, updatedTimeCount);
         return {
           name: habit.name,
           timeCount: updatedTimeCount,
@@ -38,7 +38,7 @@ export default function Habit() {
   return (
     <>
       <main className="Habit__main">
-        <h2 className="Habit__title">{singlehabit}</h2>
+        <h2 className="Habit__title">{habitname}</h2>
         <form onSubmit={handleOnSubmit} className="Habit__form">
           <section className="Habit__time">
             <div>

@@ -1,4 +1,4 @@
-import HabitList from "../services/HabitList";
+import HabitList from "../components/HabitList";
 import "./Home.css";
 
 export default function Home() {
