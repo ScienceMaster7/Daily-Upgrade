@@ -1,8 +1,3 @@
-.Menu__main {
-  background-color: var(--main-bg-color);
-  height: 94vh;
-}
-
 .Menu__link {
   text-decoration: none;
 }
