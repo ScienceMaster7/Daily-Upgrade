@@ -7,7 +7,11 @@ export default function CreateHabit() {
 
     const form = event.target;
     const newHabitName = form.newHabit.value;
-    const newHabit = { name: newHabitName, timeCount: 0 };
+    const newHabit = {
+      name: newHabitName,
+      timeCount: 0,
+      level: 0,
+    };
 
     const habbitList = localStorage.getItem("habits");
 

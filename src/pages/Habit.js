@@ -1,6 +1,7 @@
 import Footer from "../components/Footer";
 import { useParams } from "react-router-dom";
 import "./Habit.css";
+import Level from "../components/Level";
 
 export default function Habit() {
   const { singlehabit } = useParams();
@@ -19,12 +20,18 @@ export default function Habit() {
 
     const updatedHabits = habits.map((habit) => {
       if (habit.name === singlehabit) {
-        return { name: habit.name, timeCount: habit.timeCount + time };
+        const updatedTimeCount = habit.timeCount + time;
+        const currentLevel = habit.level;
+        const updatedLevel = Level(currentLevel, updatedTimeCount);
+        return {
+          name: habit.name,
+          timeCount: updatedTimeCount,
+          level: updatedLevel,
+        };
       } else {
         return habit;
       }
     });
-
     localStorage.setItem("habits", JSON.stringify(updatedHabits));
     form.reset();
   }

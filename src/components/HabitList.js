@@ -7,7 +7,10 @@ export default function HabitList() {
     const renderedHabits = habits.map((habit, index) => {
       return (
         <Link key={index} to={`/${habit.name}`} className="Home__link">
-          <button className="Home__button">{habit.name}</button>
+          <button className="Home__button">
+            <p>{habit.name}</p>
+            <p>Level: {habit.level}</p>
+          </button>
         </Link>
       );
     });
