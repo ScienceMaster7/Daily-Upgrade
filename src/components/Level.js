@@ -3,7 +3,7 @@ export default function Level(currentLevel, timeCount) {
   let currentLevelTime = timeCount - timePreviousLevels;
   let level = currentLevel;
 
-  for (let i = 0; i < currentLevel; i++) {
+  for (let i = 0; i < level; i++) {
     if (i < 5) {
       timePreviousLevels = timePreviousLevels + (i + 1) * 60;
     }
