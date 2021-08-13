@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 import "./Habit.css";
-import calculateLevels from "../services/calculateLevels";
+import calculateLevels from "../services/CalculateLevels";
 export default function Habit() {
   const { habitname } = useParams();
   const [habit, setHabit] = useState([]);
