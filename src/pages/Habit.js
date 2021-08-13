@@ -1,10 +1,23 @@
 import Footer from "../components/Footer";
 import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+
 import "./Habit.css";
 import calculateLevels from "../services/calculateLevels";
 
 export default function Habit() {
   const { habitname } = useParams();
+  const [habitLevel, setHabitLevel] = useState();
+
+  const habitList = localStorage.getItem("habits");
+  const habits = JSON.parse(habitList);
+  useEffect(() => {
+    const findLevel = habits.find((habit) => {
+      return habit.name === habitname;
+    });
+
+    setHabitLevel(findLevel.level);
+  }, [habitname, habits]);
 
   function handleOnSubmit(event) {
     event.preventDefault();
@@ -14,14 +27,12 @@ export default function Habit() {
     const minutes = form.minutes.value;
     const time = hours + Number(minutes);
 
-    const habitList = localStorage.getItem("habits");
-    const habits = JSON.parse(habitList);
-
     const updatedHabits = habits.map((habit) => {
       if (habit.name === habitname) {
         const updatedTimeCount = habit.timeCount + time;
         const currentLevel = habit.level;
         const updatedLevel = calculateLevels(currentLevel, updatedTimeCount);
+        setHabitLevel(updatedLevel);
         return {
           name: habit.name,
           timeCount: updatedTimeCount,
@@ -73,7 +84,9 @@ export default function Habit() {
               />
             </div>
           </section>
-          <p className="Habbit__text">Remaining time till Level: </p>
+          <p className="Habbit__text">
+            Remaining time till Level {habitLevel + 1}:
+          </p>
           <button type="submit" className="Habit__button">
             Submit
           </button>

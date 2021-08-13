@@ -1,6 +1,4 @@
 .Habit__main {
-  background-color: var(--main-bg-color);
-  min-height: 95vh;
   display: flex;
   flex-direction: column;
 }
