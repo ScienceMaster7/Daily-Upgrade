@@ -73,6 +73,7 @@ export default function Habit() {
               />
             </div>
           </section>
+          <p className="Habbit__text">Remaining time till Level: </p>
           <button type="submit" className="Habit__button">
             Submit
           </button>

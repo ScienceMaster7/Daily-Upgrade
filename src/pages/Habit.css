@@ -29,6 +29,10 @@
   padding: 0.5rem 0;
 }
 
+.Habbit__text {
+  font-size: var(--normal-text);
+}
+
 .Habit__button {
   cursor: pointer;
   margin: 1rem;
