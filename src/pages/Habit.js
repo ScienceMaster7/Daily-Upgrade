@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 import "./Habit.css";
-import calculateLevels from "../services/CalculateLevels";
+import calculateLevels from "../services/calculateLevels";
 export default function Habit() {
   const { habitname } = useParams();
   const [habit, setHabit] = useState([]);
@@ -54,6 +54,7 @@ export default function Habit() {
     <>
       <main className="Habit__main">
         <h2 className="Habit__title">{habitname}</h2>
+        <p className="Habit__text">Current Level {habit[0]}</p>
         <form onSubmit={handleOnSubmit} className="Habit__form">
           <section className="Habit__time">
             <div>
