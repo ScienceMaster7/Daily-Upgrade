@@ -12,6 +12,7 @@ export default function CreateHabit() {
       name: newHabitName,
       timeCount: 0,
       level: 0,
+      remainingTime: 60,
     };
 
     const habbitList = localStorage.getItem("habits");

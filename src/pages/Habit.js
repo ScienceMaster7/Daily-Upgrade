@@ -9,18 +9,21 @@ export default function Habit() {
   const { habitname } = useParams();
   const [habitLevel, setHabitLevel] = useState();
 
-  const habitList = localStorage.getItem("habits");
-  const habits = JSON.parse(habitList);
   useEffect(() => {
+    const habitList = localStorage.getItem("habits");
+    const habits = JSON.parse(habitList);
     const findLevel = habits.find((habit) => {
       return habit.name === habitname;
     });
 
     setHabitLevel(findLevel.level);
-  }, [habitname, habits]);
+  }, [habitname]);
 
   function handleOnSubmit(event) {
     event.preventDefault();
+
+    const habitList = localStorage.getItem("habits");
+    const habits = JSON.parse(habitList);
 
     const form = event.target;
     const hours = Number(form.hours.value) * 60;
@@ -31,12 +34,15 @@ export default function Habit() {
       if (habit.name === habitname) {
         const updatedTimeCount = habit.timeCount + time;
         const currentLevel = habit.level;
-        const updatedLevel = calculateLevels(currentLevel, updatedTimeCount);
+        const levelAndTime = calculateLevels(currentLevel, updatedTimeCount);
+        const updatedLevel = levelAndTime[0];
+        const updatedRemainigTime = levelAndTime[1];
         setHabitLevel(updatedLevel);
         return {
           name: habit.name,
           timeCount: updatedTimeCount,
           level: updatedLevel,
+          remainingTime: updatedRemainigTime,
         };
       } else {
         return habit;
@@ -62,7 +68,7 @@ export default function Habit() {
                 id="hours"
                 autoComplete="off"
                 min="0"
-                max="20000"
+                max="20"
                 placeholder="3"
                 required={true}
               />
