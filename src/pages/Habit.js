@@ -7,16 +7,16 @@ import calculateLevels from "../services/calculateLevels";
 
 export default function Habit() {
   const { habitname } = useParams();
-  const [habitLevel, setHabitLevel] = useState();
+  const [habit, setHabit] = useState([]);
 
   useEffect(() => {
     const habitList = localStorage.getItem("habits");
     const habits = JSON.parse(habitList);
-    const findLevel = habits.find((habit) => {
+    const findHabit = habits.find((habit) => {
       return habit.name === habitname;
     });
 
-    setHabitLevel(findLevel.level);
+    setHabit([findHabit.level, findHabit.remainingTime]);
   }, [habitname]);
 
   function handleOnSubmit(event) {
@@ -37,7 +37,7 @@ export default function Habit() {
         const levelAndTime = calculateLevels(currentLevel, updatedTimeCount);
         const updatedLevel = levelAndTime[0];
         const updatedRemainigTime = levelAndTime[1];
-        setHabitLevel(updatedLevel);
+        setHabit([updatedLevel, updatedRemainigTime]);
         return {
           name: habit.name,
           timeCount: updatedTimeCount,
@@ -90,9 +90,10 @@ export default function Habit() {
               />
             </div>
           </section>
-          <p className="Habbit__text">
-            Remaining time till Level {habitLevel + 1}:
+          <p className="Habit__text">
+            Remaining time till Level {habit[0] + 1}
           </p>
+          <p className="Habit__text">{habit[1]} Minutes.</p>
           <button type="submit" className="Habit__button">
             Submit
           </button>

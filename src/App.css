@@ -13,10 +13,12 @@
   background-color: var(--header-color);
 }
 .Header__link {
+  cursor: pointer;
   width: fit-content;
   text-decoration: none;
 }
 .Header__menuIcon {
+  cursor: pointer;
   margin: 0.5rem;
   font-size: var(--big-text);
   color: var(--sencodary-text-color);
