@@ -1,6 +1,7 @@
 export default function calculateLevels(currentLevel, timeCount) {
   let timePreviousLevels = 0;
   let level = currentLevel;
+  let remainingTime;
 
   for (let i = 0; i < level; i++) {
     if (i < 5) {
@@ -34,6 +35,7 @@ export default function calculateLevels(currentLevel, timeCount) {
         currentLevelTime = currentLevelTime - requiredTime;
         level = level + 1;
       } else {
+        remainingTime = requiredTime - currentLevelTime;
         break;
       }
     }
@@ -83,5 +85,6 @@ export default function calculateLevels(currentLevel, timeCount) {
       }
     }
   }
-  return level;
+
+  return [level, remainingTime];
 }
