@@ -1,5 +1,6 @@
 import Footer from "../components/Footer";
 import "./CreateHabit.css";
+import toast, { Toaster } from "react-hot-toast";
 
 export default function CreateHabit() {
   function handleOnSubmit(event) {
@@ -29,6 +30,12 @@ export default function CreateHabit() {
       if (validated) {
         storedhabbits.push(newHabit);
         localStorage.setItem("habits", JSON.stringify(storedhabbits));
+        toast.success(
+          `You have Successfully added the habbit ${newHabitName}`,
+          {
+            duration: 4000,
+          }
+        );
       } else {
         alert("You already created this habit");
       }
@@ -36,13 +43,16 @@ export default function CreateHabit() {
       const storedhabbits = [];
       storedhabbits.push(newHabit);
       localStorage.setItem("habits", JSON.stringify(storedhabbits));
+      toast.success(`You have Successfully added the habbit ${newHabitName}`, {
+        duration: 4000,
+      });
     }
-
     form.reset();
   }
   return (
     <>
       <main className="CreateHabit__main">
+        <Toaster />
         <form className="CreateHabit__form" onSubmit={handleOnSubmit}>
           <input
             className="CreateHabit__input"
