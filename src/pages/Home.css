@@ -2,8 +2,6 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  background-color: var(--main-bg-color);
-  min-height: 96vh;
   overflow-y: scroll;
 }
 
@@ -26,7 +24,6 @@
 }
 
 .Home__text--no-habbits {
-  align-self: center;
   margin: 1rem;
   font-size: var(--big-text);
 }

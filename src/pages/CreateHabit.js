@@ -6,18 +6,36 @@ export default function CreateHabit() {
     event.preventDefault();
 
     const form = event.target;
-    const newHabbit = form.newHabbit.value;
+    const newHabitName = form.newHabit.value;
+    const newHabit = {
+      name: newHabitName,
+      timeCount: 0,
+      level: 0,
+    };
 
-    const habbitList = localStorage.getItem("habbits");
+    const habbitList = localStorage.getItem("habits");
 
     if (habbitList !== null) {
+      let validated = true;
+
       const storedhabbits = JSON.parse(habbitList);
-      storedhabbits.push(newHabbit);
-      localStorage.setItem("habbits", JSON.stringify(storedhabbits));
+
+      storedhabbits.forEach((habit) => {
+        if (habit.name === newHabitName) {
+          validated = false;
+        }
+      });
+
+      if (validated) {
+        storedhabbits.push(newHabit);
+        localStorage.setItem("habits", JSON.stringify(storedhabbits));
+      } else {
+        alert("You already created this habit");
+      }
     } else {
       const storedhabbits = [];
-      storedhabbits.push(newHabbit);
-      localStorage.setItem("habbits", JSON.stringify(storedhabbits));
+      storedhabbits.push(newHabit);
+      localStorage.setItem("habits", JSON.stringify(storedhabbits));
     }
 
     form.reset();
@@ -29,9 +47,9 @@ export default function CreateHabit() {
           <input
             className="CreateHabit__input"
             type="text"
-            name="newHabbit"
-            id="newHabbit"
-            placeholder="New Habbit"
+            name="newHabit"
+            id="newHabit"
+            placeholder="New Habit"
             autoComplete="off"
             required={true}
           />

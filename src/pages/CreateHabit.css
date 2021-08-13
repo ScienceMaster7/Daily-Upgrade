@@ -1,8 +1,3 @@
-.CreateHabit__main {
-  background-color: var(--main-bg-color);
-  min-height: 95vh;
-  overflow-y: scroll;
-}
 .CreateHabit__form {
   margin: 1rem;
   display: flex;

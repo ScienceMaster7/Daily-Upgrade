@@ -17,13 +17,20 @@
   align-items: center;
 }
 
+.Habit__label {
+  font-size: var(--normal-text);
+}
+
 .Habit__input {
+  width: 4rem;
+  margin: 1rem;
   font-size: var(--normal-text);
   text-align: center;
   padding: 0.5rem 0;
 }
 
 .Habit__button {
+  cursor: pointer;
   margin: 1rem;
   padding: 0.5rem;
   font-size: var(--normal-text);

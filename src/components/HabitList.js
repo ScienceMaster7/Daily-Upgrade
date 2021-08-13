@@ -1,17 +1,20 @@
 import { Link } from "react-router-dom";
 
 export default function HabitList() {
-  const habbits = JSON.parse(localStorage.getItem("habbits"));
+  const habits = JSON.parse(localStorage.getItem("habits"));
 
-  if (habbits !== null) {
-    const renderedHabbits = habbits.map((habbit, index) => {
+  if (habits !== null) {
+    const renderedHabits = habits.map((habit, index) => {
       return (
-        <Link key={index} to={`/${habbit}`} className="Home__link">
-          <button className="Home__button">{habbit}</button>
+        <Link key={index} to={`/${habit.name}`} className="Home__link">
+          <button className="Home__button">
+            <p>{habit.name}</p>
+            <p>Level: {habit.level}</p>
+          </button>
         </Link>
       );
     });
-    return renderedHabbits;
+    return renderedHabits;
   } else {
     return (
       <p className="Home__text--no-habbits">
