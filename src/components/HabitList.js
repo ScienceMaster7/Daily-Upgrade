@@ -7,12 +7,13 @@ export default function HabitList() {
 
   if (habits !== null) {
     const renderedHabits = habits.map((habit, index) => {
-      let percentage = 66;
+      let percentage = habit.progressPercentage;
       return (
         <Link key={index} to={`/${habit.name}`} className="Home__link">
           <button className="Home__button">
             <CircularProgressbar
               value={percentage}
+              maxValue={1}
               className="Home__progressbar"
             />
             <div className="Home__button__text">
