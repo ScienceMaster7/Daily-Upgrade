@@ -13,14 +13,27 @@
 .Home__button {
   background-color: var(--primary-color);
   color: var(--primary-text-color);
-  height: 150px;
-  width: 150px;
+  height: 135px;
+  width: 135px;
   border-radius: 50%;
   border-style: initial;
   padding: 2rem;
   margin: 1rem;
   font-size: var(--normal-text);
   cursor: pointer;
+}
+
+.Home__button__text {
+  position: relative;
+  bottom: 140px;
+}
+
+.Home__progressbar {
+  position: relative;
+  right: 32px;
+  bottom: 32px;
+  height: 135px;
+  width: 135px;
 }
 
 .Home__text--no-habbits {
