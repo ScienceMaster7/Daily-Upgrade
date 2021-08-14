@@ -35,7 +35,7 @@ export default function CreateHabit() {
         toast.success(
           `You have Successfully added the habbit ${newHabitName}`,
           {
-            duration: 4000,
+            duration: 3000,
           }
         );
       } else {
