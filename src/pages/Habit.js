@@ -44,14 +44,14 @@ export default function Habit() {
 
         if (updatedLevel > habitState[0]) {
           toast.success(`Congratulations on reaching Level ${updatedLevel} !`, {
-            duration: 10000,
+            duration: 3000,
           });
         }
 
         if (updatedRank !== habitState[2]) {
           toast.success(
             `Congratulations ! You are now a ${updatedRank} in ${habitname}`,
-            { duration: 10000 }
+            { duration: 3000 }
           );
         }
 
