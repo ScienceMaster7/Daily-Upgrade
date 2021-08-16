@@ -36,12 +36,14 @@ export default function Habit() {
         const levelAndTime = calculateLevels(currentLevel, updatedTimeCount);
         const updatedLevel = levelAndTime[0];
         const updatedRemainigTime = levelAndTime[1];
+        const updatedprogressPercentage = levelAndTime[2];
         setHabit([updatedLevel, updatedRemainigTime]);
         return {
           name: habit.name,
           timeCount: updatedTimeCount,
           level: updatedLevel,
           remainingTime: updatedRemainigTime,
+          progressPercentage: updatedprogressPercentage,
         };
       } else {
         return habit;

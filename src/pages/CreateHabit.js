@@ -13,6 +13,7 @@ export default function CreateHabit() {
       timeCount: 0,
       level: 0,
       remainingTime: 60,
+      progressPercentage: 0,
     };
 
     const habbitList = localStorage.getItem("habits");
@@ -34,7 +35,7 @@ export default function CreateHabit() {
         toast.success(
           `You have Successfully added the habbit ${newHabitName}`,
           {
-            duration: 4000,
+            duration: 3000,
           }
         );
       } else {
