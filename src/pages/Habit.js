@@ -16,7 +16,9 @@ export default function Habit() {
     const findHabit = habits.find((habit) => {
       return habit.name === habitname;
     });
-
+    /* I set the state here so that on first render the current level in 
+    a habit, the remaining time until the next level and current rank of 
+    the user in that habit are displayed */
     setHabit([findHabit.level, findHabit.remainingTime, findHabit.rank]);
   }, [habitname]);
 
@@ -40,7 +42,13 @@ export default function Habit() {
         const updatedRemainigTime = levelAndTime[1];
         const updatedprogressPercentage = levelAndTime[2];
         const updatedRank = levelAndTime[3];
+        /* I call setHabit here because the user has submited time which 
+          might impact the level and the rank and definitly impact the remaining
+          time until the next level.*/
         setHabit([updatedLevel, updatedRemainigTime, updatedRank]);
+
+        /* I return a new object so that the habit list in local storage is
+        also updated. */
         return {
           name: habit.name,
           timeCount: updatedTimeCount,
