@@ -3,6 +3,7 @@ export default function calculateLevels(currentLevel, timeCount) {
   let level = currentLevel;
   let remainingTime;
   let progressPercentage;
+  let rank;
 
   for (let i = 0; i < level; i++) {
     if (i < 5) {
@@ -28,7 +29,11 @@ export default function calculateLevels(currentLevel, timeCount) {
 
   while (true) {
     if (level === 1000) {
-      return level;
+      level = 1000;
+      remainingTime = 0;
+      progressPercentage = 0;
+      rank = "Legend";
+      break;
     }
     if (level < 5) {
       const requiredTime = (level + 1) * 60;
@@ -38,6 +43,7 @@ export default function calculateLevels(currentLevel, timeCount) {
       } else {
         progressPercentage = currentLevelTime / requiredTime;
         remainingTime = requiredTime - currentLevelTime;
+        rank = "Begginer";
         break;
       }
     }
@@ -49,6 +55,11 @@ export default function calculateLevels(currentLevel, timeCount) {
       } else {
         progressPercentage = currentLevelTime / requiredTime;
         remainingTime = requiredTime - currentLevelTime;
+        if (level < 10) {
+          rank = "Begginer";
+        } else {
+          rank = "Amateur";
+        }
         break;
       }
     }
@@ -60,6 +71,7 @@ export default function calculateLevels(currentLevel, timeCount) {
       } else {
         progressPercentage = currentLevelTime / requiredTime;
         remainingTime = requiredTime - currentLevelTime;
+        rank = "Advanced";
         break;
       }
     }
@@ -71,6 +83,7 @@ export default function calculateLevels(currentLevel, timeCount) {
       } else {
         progressPercentage = currentLevelTime / requiredTime;
         remainingTime = requiredTime - currentLevelTime;
+        rank = "Professional";
         break;
       }
     }
@@ -82,6 +95,7 @@ export default function calculateLevels(currentLevel, timeCount) {
       } else {
         progressPercentage = currentLevelTime / requiredTime;
         remainingTime = requiredTime - currentLevelTime;
+        rank = "Master";
         break;
       }
     }
@@ -93,10 +107,11 @@ export default function calculateLevels(currentLevel, timeCount) {
       } else {
         progressPercentage = currentLevelTime / requiredTime;
         remainingTime = requiredTime - currentLevelTime;
+        rank = "Grand Master";
         break;
       }
     }
   }
 
-  return [level, remainingTime, progressPercentage];
+  return [level, remainingTime, progressPercentage, rank];
 }

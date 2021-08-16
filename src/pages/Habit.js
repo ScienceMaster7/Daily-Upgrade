@@ -15,7 +15,7 @@ export default function Habit() {
       return habit.name === habitname;
     });
 
-    setHabit([findHabit.level, findHabit.remainingTime]);
+    setHabit([findHabit.level, findHabit.remainingTime, findHabit.rank]);
   }, [habitname]);
 
   function handleOnSubmit(event) {
@@ -37,13 +37,15 @@ export default function Habit() {
         const updatedLevel = levelAndTime[0];
         const updatedRemainigTime = levelAndTime[1];
         const updatedprogressPercentage = levelAndTime[2];
-        setHabit([updatedLevel, updatedRemainigTime]);
+        const updatedRank = levelAndTime[3];
+        setHabit([updatedLevel, updatedRemainigTime, updatedRank]);
         return {
           name: habit.name,
           timeCount: updatedTimeCount,
           level: updatedLevel,
           remainingTime: updatedRemainigTime,
           progressPercentage: updatedprogressPercentage,
+          rank: updatedRank,
         };
       } else {
         return habit;
@@ -56,50 +58,57 @@ export default function Habit() {
     <>
       <main className="Habit__main">
         <h2 className="Habit__title">{habitname}</h2>
+        <p className="Habit__text">{habit[2]}</p>
         <p className="Habit__text">Current Level {habit[0]}</p>
-        <form onSubmit={handleOnSubmit} className="Habit__form">
-          <section className="Habit__time">
-            <div>
-              <label className="Habit__label" htmlFor="hours">
-                Hours:
-              </label>
-              <input
-                type="number"
-                className="Habit__input"
-                name="hours"
-                id="hours"
-                autoComplete="off"
-                min="0"
-                max="20"
-                placeholder="3"
-                required={true}
-              />
-            </div>
-            <div>
-              <label className="Habit__label" htmlFor="minutes">
-                Minutes:
-              </label>
-              <input
-                type="number"
-                className="Habit__input"
-                name="minutes"
-                id="minutes"
-                autoComplete="off"
-                min="0"
-                max="59"
-                placeholder="20"
-                required={true}
-              />
-            </div>
-          </section>
-          <p className="Habit__text">
-            Remaining time till Level {habit[0] + 1}
-          </p>
-          <p className="Habit__text">{habit[1]} Minutes.</p>
-          <button type="submit" className="Habit__button">
-            Submit
-          </button>
-        </form>
+        {habit[0] < 1000 && (
+          <form onSubmit={handleOnSubmit} className="Habit__form">
+            <section className="Habit__time">
+              <div>
+                <label className="Habit__label" htmlFor="hours">
+                  Hours:
+                </label>
+                <input
+                  type="number"
+                  className="Habit__input"
+                  name="hours"
+                  id="hours"
+                  autoComplete="off"
+                  min="0"
+                  max="2000000"
+                  placeholder="3"
+                  required={true}
+                />
+              </div>
+              <div>
+                <label className="Habit__label" htmlFor="minutes">
+                  Minutes:
+                </label>
+                <input
+                  type="number"
+                  className="Habit__input"
+                  name="minutes"
+                  id="minutes"
+                  autoComplete="off"
+                  min="0"
+                  max="59"
+                  placeholder="20"
+                  required={true}
+                />
+              </div>
+            </section>
+
+            <p className="Habit__text">
+              Remaining time till Level {habit[0] + 1}
+            </p>
+            <p className="Habit__text">{habit[1]} Minutes.</p>
+            <button type="submit" className="Habit__button">
+              Submit
+            </button>
+          </form>
+        )}
+        {habit[0] === 1000 && (
+          <p className="Habit__text">This is the highest possible level.</p>
+        )}
       </main>
       <Footer />
     </>
