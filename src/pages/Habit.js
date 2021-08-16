@@ -1,12 +1,13 @@
 import Footer from "../components/Footer";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import toast, { Toaster } from "react-hot-toast";
 
 import "./Habit.css";
 import calculateLevels from "../services/CalculateLevels";
 export default function Habit() {
   const { habitname } = useParams();
-  const [habit, setHabit] = useState([]);
+  const [habitState, setHabitState] = useState([]);
 
   const maxLevel = 1000;
 
@@ -16,10 +17,8 @@ export default function Habit() {
     const findHabit = habits.find((habit) => {
       return habit.name === habitname;
     });
-    /* I set the state here so that on first render the current level in 
-    a habit, the remaining time until the next level and current rank of 
-    the user in that habit are displayed */
-    setHabit([findHabit.level, findHabit.remainingTime, findHabit.rank]);
+
+    setHabitState([findHabit.level, findHabit.remainingTime, findHabit.rank]);
   }, [habitname]);
 
   function handleOnSubmit(event) {
@@ -42,13 +41,22 @@ export default function Habit() {
         const updatedRemainigTime = levelAndTime[1];
         const updatedprogressPercentage = levelAndTime[2];
         const updatedRank = levelAndTime[3];
-        /* I call setHabit here because the user has submited time which 
-          might impact the level and the rank and definitly impact the remaining
-          time until the next level.*/
-        setHabit([updatedLevel, updatedRemainigTime, updatedRank]);
 
-        /* I return a new object so that the habit list in local storage is
-        also updated. */
+        if (updatedLevel > habitState[0]) {
+          toast.success(`Congratulations on reaching Level ${updatedLevel} !`, {
+            duration: 10000,
+          });
+        }
+
+        if (updatedRank !== habitState[2]) {
+          toast.success(
+            `Congratulations ! You are now a ${updatedRank} in ${habitname}`,
+            { duration: 10000 }
+          );
+        }
+
+        setHabitState([updatedLevel, updatedRemainigTime, updatedRank]);
+
         return {
           name: habit.name,
           timeCount: updatedTimeCount,
@@ -67,10 +75,11 @@ export default function Habit() {
   return (
     <>
       <main className="Habit__main">
+        <Toaster />
         <h2 className="Habit__title">{habitname}</h2>
-        <p className="Habit__text">{habit[2]}</p>
-        <p className="Habit__text">Current Level {habit[0]}</p>
-        {habit[0] < maxLevel && (
+        <p className="Habit__text">{habitState[2]}</p>
+        <p className="Habit__text">Current Level {habitState[0]}</p>
+        {habitState[0] < maxLevel && (
           <form onSubmit={handleOnSubmit} className="Habit__form">
             <section className="Habit__time">
               <div>
@@ -108,15 +117,15 @@ export default function Habit() {
             </section>
 
             <p className="Habit__text">
-              Remaining time till Level {habit[0] + 1}
+              Remaining time till Level {habitState[0] + 1}
             </p>
-            <p className="Habit__text">{habit[1]} Minutes.</p>
+            <p className="Habit__text">{habitState[1]} Minutes.</p>
             <button type="submit" className="Habit__button">
               Submit
             </button>
           </form>
         )}
-        {habit[0] === maxLevel && (
+        {habitState[0] === maxLevel && (
           <p className="Habit__text">This is the highest possible level.</p>
         )}
       </main>
