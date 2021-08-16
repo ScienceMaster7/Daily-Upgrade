@@ -28,6 +28,7 @@
 }
 
 .Habit__text {
+  margin: 1rem 0;
   font-size: var(--normal-text);
 }
 

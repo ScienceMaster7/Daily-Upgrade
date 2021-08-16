@@ -14,6 +14,7 @@ export default function CreateHabit() {
       level: 0,
       remainingTime: 60,
       progressPercentage: 0,
+      rank: "Beginner",
     };
 
     const habbitList = localStorage.getItem("habits");
