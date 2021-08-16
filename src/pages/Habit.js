@@ -8,6 +8,8 @@ export default function Habit() {
   const { habitname } = useParams();
   const [habit, setHabit] = useState([]);
 
+  const maxLevel = 1000;
+
   useEffect(() => {
     const habitList = localStorage.getItem("habits");
     const habits = JSON.parse(habitList);
@@ -60,7 +62,7 @@ export default function Habit() {
         <h2 className="Habit__title">{habitname}</h2>
         <p className="Habit__text">{habit[2]}</p>
         <p className="Habit__text">Current Level {habit[0]}</p>
-        {habit[0] < 1000 && (
+        {habit[0] < maxLevel && (
           <form onSubmit={handleOnSubmit} className="Habit__form">
             <section className="Habit__time">
               <div>
@@ -76,7 +78,7 @@ export default function Habit() {
                   min="0"
                   max="20"
                   placeholder="3"
-                  required={true}
+                  required
                 />
               </div>
               <div>
@@ -92,7 +94,7 @@ export default function Habit() {
                   min="0"
                   max="59"
                   placeholder="20"
-                  required={true}
+                  required
                 />
               </div>
             </section>
@@ -106,7 +108,7 @@ export default function Habit() {
             </button>
           </form>
         )}
-        {habit[0] === 1000 && (
+        {habit[0] === maxLevel && (
           <p className="Habit__text">This is the highest possible level.</p>
         )}
       </main>

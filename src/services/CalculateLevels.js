@@ -1,3 +1,6 @@
+/* This Function receives two Arguments The current Level this habit is at 
+and a number that represents the total amount of time the user has spent on 
+this habit.*/
 export default function calculateLevels(currentLevel, timeCount) {
   let timePreviousLevels = 0;
   let level = currentLevel;
@@ -5,6 +8,8 @@ export default function calculateLevels(currentLevel, timeCount) {
   let progressPercentage;
   let rank;
 
+  /* Here I calculate the total time it has taken the user to reach the 
+  current level. */
   for (let i = 0; i < level; i++) {
     if (i < 5) {
       timePreviousLevels = timePreviousLevels + (i + 1) * 60;
