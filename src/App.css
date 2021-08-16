@@ -11,7 +11,10 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  background-color: var(--header-color);
+  background-image: linear-gradient(
+    to bottom right,
+    var(--header-gradient-color)
+  );
 }
 .Header__link {
   cursor: pointer;
