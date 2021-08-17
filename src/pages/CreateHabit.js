@@ -1,15 +1,13 @@
 import Footer from "../components/Footer";
 import "./CreateHabit.css";
 import toast, { Toaster } from "react-hot-toast";
+import todaysDate from "../services/todaysDate";
 
 export default function CreateHabit() {
   function handleOnSubmit(event) {
     event.preventDefault();
 
-    let today = new Date();
-    let date = [today.getDate(), today.getMonth(), today.getFullYear()];
-
-    today = date.join(".");
+    const today = todaysDate();
 
     const form = event.target;
     const newHabitName = form.newHabit.value;

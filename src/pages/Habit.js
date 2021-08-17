@@ -5,6 +5,7 @@ import toast, { Toaster } from "react-hot-toast";
 
 import "./Habit.css";
 import calculateLevels from "../services/CalculateLevels";
+import updateDateTracker from "../services/updateDateTracker";
 export default function Habit() {
   const { habitname } = useParams();
   const [habitState, setHabitState] = useState([]);
@@ -34,6 +35,7 @@ export default function Habit() {
 
     const updatedHabits = habits.map((habit) => {
       if (habit.name === habitname) {
+        const updatedDateTracker = updateDateTracker(habit.dateTracker, time);
         const updatedTimeCount = habit.timeCount + time;
         const currentLevel = habit.level;
         const levelAndTime = calculateLevels(currentLevel, updatedTimeCount);
@@ -64,6 +66,7 @@ export default function Habit() {
           remainingTime: updatedRemainigTime,
           progressPercentage: updatedprogressPercentage,
           rank: updatedRank,
+          dateTracker: updatedDateTracker,
         };
       } else {
         return habit;
