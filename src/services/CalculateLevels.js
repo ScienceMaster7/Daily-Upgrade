@@ -58,7 +58,7 @@ current Level time is greater then the requirement. */
       } else {
         progressPercentage = currentLevelTime / requiredTime;
         remainingTime = requiredTime - currentLevelTime;
-        rank = "Begginer";
+        rank = "Beginer";
         break;
       }
     }
@@ -71,7 +71,7 @@ current Level time is greater then the requirement. */
         progressPercentage = currentLevelTime / requiredTime;
         remainingTime = requiredTime - currentLevelTime;
         if (level < 10) {
-          rank = "Begginer";
+          rank = "Beginer";
         } else {
           rank = "Amateur";
         }
