@@ -1,6 +1,6 @@
 .ProgressLogs__main {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   justify-content: center;
   overflow-y: scroll;
 }
@@ -8,8 +8,9 @@
 .card {
   background-color: var(--primary-color);
   color: var(--primary-text-color);
-  margin: 1rem 10% 1rem 10%;
+  margin: 1rem;
   padding: 1rem;
+  width: 300px;
 }
 
 .card:last-of-type {
