@@ -8,7 +8,7 @@
 .card {
   background-color: var(--primary-color);
   color: var(--primary-text-color);
-  margin: 1rem 15% 1rem 15%;
+  margin: 1rem 10% 1rem 10%;
   padding: 1rem;
 }
 
@@ -35,10 +35,10 @@
   );
   height: 2rem;
   width: 2rem;
+  margin: 0 0 1rem 0;
 }
 
 .streak__item__date {
   position: relative;
   bottom: 1.1rem;
-  right: 1rem;
 }
