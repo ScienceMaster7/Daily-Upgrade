@@ -6,6 +6,11 @@ export default function CreateHabit() {
   function handleOnSubmit(event) {
     event.preventDefault();
 
+    let today = new Date();
+    let date = [today.getDate(), today.getMonth(), today.getFullYear()];
+
+    today = date.join(".");
+
     const form = event.target;
     const newHabitName = form.newHabit.value;
     const newHabit = {
@@ -15,6 +20,12 @@ export default function CreateHabit() {
       remainingTime: 60,
       progressPercentage: 0,
       rank: "Beginner",
+      dateTracker: [
+        {
+          date: today,
+          timeToday: 0,
+        },
+      ],
     };
 
     const habbitList = localStorage.getItem("habits");
