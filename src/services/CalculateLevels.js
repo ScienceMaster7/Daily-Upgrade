@@ -73,7 +73,7 @@ current Level time is greater then the requirement. */
         if (level < 10) {
           rank = "Beginner";
         } else {
-          rank = "Amateur";
+          rank = "Intermediate";
         }
         break;
       }
