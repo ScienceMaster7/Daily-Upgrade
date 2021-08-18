@@ -1,5 +1,6 @@
 import Footer from "../components/Footer";
 import StreakItems from "../components/StreakItems";
+import todaysDate from "../services/todaysDate";
 import "./ProgressLogs.css";
 
 export default function ProgressLogs() {
@@ -18,19 +19,27 @@ export default function ProgressLogs() {
     "December",
   ];
   const habits = JSON.parse(localStorage.getItem("habits"));
-  let dateAndTime;
+  let habitCards;
   if (habits) {
-    dateAndTime = habits.map((habit, index) => {
+    habitCards = habits.map((habit, index) => {
+      const today = todaysDate();
+      const datesCurrentMonth = habit.dateTracker.map((dateobject) => {
+        let dateCurrentMonth;
+        if (
+          dateobject.date[1] === today[1] &&
+          dateobject.date[2] === today[2]
+        ) {
+          dateCurrentMonth = dateobject.date;
+        }
+        return dateCurrentMonth;
+      });
+      console.log(datesCurrentMonth);
       return (
         <section key={index} className="card">
           <h2 className="card__habitName">{habit.name}</h2>
-          <h3>
-            {months[habit.dateTracker[habit.dateTracker.length - 1].date[1]] +
-              " " +
-              habit.dateTracker[habit.dateTracker.length - 1].date[2]}
-          </h3>
+          <h3>{months[today[1]] + " " + today[2]}</h3>
           <div className="card__streak">
-            <StreakItems dates={habit.dateTracker} />
+            <StreakItems dates={datesCurrentMonth} />
           </div>
         </section>
       );
@@ -38,8 +47,8 @@ export default function ProgressLogs() {
   }
   return (
     <>
-      {dateAndTime && <main className="ProgressLogs__main">{dateAndTime}</main>}
-      {dateAndTime === undefined && <h2>No Habits. No Progress.</h2>}
+      {habitCards && <main className="ProgressLogs__main">{habitCards}</main>}
+      {habitCards === undefined && <h2>No Habits. No Progress.</h2>}
       <Footer />
     </>
   );
