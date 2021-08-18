@@ -20,38 +20,6 @@ export default function CreateHabit() {
       rank: "Beginner",
       dateTracker: [
         {
-          date: "06.08.2021",
-          timeToday: 0,
-        },
-        {
-          date: "07.08.2021",
-          timeToday: 0,
-        },
-        {
-          date: "09.08.2021",
-          timeToday: 0,
-        },
-        {
-          date: "10.08.2021",
-          timeToday: 0,
-        },
-        {
-          date: "13.08.2021",
-          timeToday: 0,
-        },
-        {
-          date: "14.08.2021",
-          timeToday: 0,
-        },
-        {
-          date: "15.08.2021",
-          timeToday: 0,
-        },
-        {
-          date: "16.08.2021",
-          timeToday: 0,
-        },
-        {
           date: today,
           timeToday: 0,
         },
@@ -105,7 +73,7 @@ export default function CreateHabit() {
             id="newHabit"
             placeholder="New Habit"
             autoComplete="off"
-            required={true}
+            required
           />
           <button className="CreateHabit__button" type="submit">
             Add
