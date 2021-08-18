@@ -40,7 +40,6 @@ export default function Habit() {
     const hours = Number(form.hours.value) * 60;
     const minutes = form.minutes.value;
     const time = hours + Number(minutes);
-    console.log(time);
     if (time === 0) {
       toast("You can't submit 0 hours and zero minutes", {
         duration: 3000,

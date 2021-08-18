@@ -7,7 +7,6 @@ export default function ProgressLogs() {
   let dateAndTime;
   if (habits) {
     dateAndTime = habits.map((habit, index) => {
-      console.log(habit.dateTracker[0].date);
       return (
         <section key={index} className="card">
           <h2 className="card__habitName">{habit.name}</h2>
@@ -20,7 +19,8 @@ export default function ProgressLogs() {
   }
   return (
     <>
-      <main className="ProgressLogs__main">{dateAndTime}</main>
+      {dateAndTime && <main className="ProgressLogs__main">{dateAndTime}</main>}
+      {dateAndTime === undefined && <h2>No Habits. No Progress.</h2>}
       <Footer />
     </>
   );
