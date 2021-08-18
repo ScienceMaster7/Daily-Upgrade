@@ -5,7 +5,7 @@ import "react-circular-progressbar/dist/styles.css";
 export default function HabitList() {
   const habits = JSON.parse(localStorage.getItem("habits"));
 
-  if (habits) {
+  if (habits && habits === []) {
     const renderedHabits = habits.map((habit, index) => {
       let percentage = habit.progressPercentage;
       return (

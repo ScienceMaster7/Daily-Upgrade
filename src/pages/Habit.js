@@ -95,8 +95,7 @@ export default function Habit() {
   let history = useHistory();
 
   function handleOnClickDelete() {
-    // eslint-disable-next-line no-restricted-globals
-    if (confirm("Do you realy want to delete this habit")) {
+    if (window.confirm("Do you realy want to delete this habit")) {
       const habitList = localStorage.getItem("habits");
       const habits = JSON.parse(habitList);
 
