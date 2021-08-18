@@ -34,50 +34,59 @@ export default function Habit() {
     const hours = Number(form.hours.value) * 60;
     const minutes = form.minutes.value;
     const time = hours + Number(minutes);
+    console.log(time);
+    if (time === 0) {
+      toast("You can't submit 0 hours and zero minutes", {
+        duration: 3000,
+        icon: "❌",
+      });
+    } else {
+      const updatedHabits = habits.map((habit) => {
+        if (habit.name === habitname) {
+          const updatedDateTracker = updateDateTracker(habit.dateTracker, time);
+          const updatedTimeCount = habit.timeCount + time;
+          const currentLevel = habit.level;
+          const levelAndTime = calculateLevels(currentLevel, updatedTimeCount);
+          const updatedLevel = levelAndTime[0];
+          const updatedRemainigTime = levelAndTime[1];
+          const updatedprogressPercentage = levelAndTime[2];
+          const updatedRank = levelAndTime[3];
 
-    const updatedHabits = habits.map((habit) => {
-      if (habit.name === habitname) {
-        const updatedDateTracker = updateDateTracker(habit.dateTracker, time);
-        const updatedTimeCount = habit.timeCount + time;
-        const currentLevel = habit.level;
-        const levelAndTime = calculateLevels(currentLevel, updatedTimeCount);
-        const updatedLevel = levelAndTime[0];
-        const updatedRemainigTime = levelAndTime[1];
-        const updatedprogressPercentage = levelAndTime[2];
-        const updatedRank = levelAndTime[3];
+          if (updatedLevel > habitState[0]) {
+            toast.success(
+              `Congratulations on reaching Level ${updatedLevel} !`,
+              {
+                duration: 3000,
+              }
+            );
+          }
 
-        if (updatedLevel > habitState[0]) {
-          toast.success(`Congratulations on reaching Level ${updatedLevel} !`, {
-            duration: 3000,
-          });
+          if (updatedRank !== habitState[2]) {
+            toast.success(
+              `Congratulations ! You are now a ${updatedRank} in ${habitname}`,
+              { duration: 3000 }
+            );
+          }
+
+          setHabitState([updatedLevel, updatedRemainigTime, updatedRank]);
+
+          return {
+            name: habit.name,
+            timeCount: updatedTimeCount,
+            level: updatedLevel,
+            remainingTime: updatedRemainigTime,
+            progressPercentage: updatedprogressPercentage,
+            rank: updatedRank,
+            dateTracker: updatedDateTracker,
+          };
+        } else {
+          return habit;
         }
-
-        if (updatedRank !== habitState[2]) {
-          toast.success(
-            `Congratulations ! You are now a ${updatedRank} in ${habitname}`,
-            { duration: 3000 }
-          );
-        }
-
-        setHabitState([updatedLevel, updatedRemainigTime, updatedRank]);
-
-        return {
-          name: habit.name,
-          timeCount: updatedTimeCount,
-          level: updatedLevel,
-          remainingTime: updatedRemainigTime,
-          progressPercentage: updatedprogressPercentage,
-          rank: updatedRank,
-          dateTracker: updatedDateTracker,
-        };
-      } else {
-        return habit;
-      }
-    });
-    localStorage.setItem("habits", JSON.stringify(updatedHabits));
-    form.reset();
+      });
+      localStorage.setItem("habits", JSON.stringify(updatedHabits));
+      form.reset();
+    }
   }
-
   return (
     <>
       {habitState.length !== 0 && (
