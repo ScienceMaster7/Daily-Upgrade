@@ -3,6 +3,20 @@ import StreakItems from "../components/StreakItems";
 import "./ProgressLogs.css";
 
 export default function ProgressLogs() {
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
   const habits = JSON.parse(localStorage.getItem("habits"));
   let dateAndTime;
   if (habits) {
@@ -11,7 +25,9 @@ export default function ProgressLogs() {
         <section key={index} className="card">
           <h2 className="card__habitName">{habit.name}</h2>
           <h3>
-            {habit.dateTracker[habit.dateTracker.length - 1].date.slice(3)}
+            {months[habit.dateTracker[habit.dateTracker.length - 1].date[1]] +
+              " " +
+              habit.dateTracker[habit.dateTracker.length - 1].date[2]}
           </h3>
           <div className="card__streak">
             <StreakItems dates={habit.dateTracker} />
