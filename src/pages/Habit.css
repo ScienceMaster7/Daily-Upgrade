@@ -42,3 +42,14 @@
   border-style: unset;
   border-radius: 10px;
 }
+
+.Habit__delete-button {
+  cursor: pointer;
+  width: fit-content;
+  padding: 0.5rem;
+  margin-bottom: 4rem;
+  font-size: var(--normal-text);
+  background-color: red;
+  border-style: unset;
+  border-radius: 10px;
+}

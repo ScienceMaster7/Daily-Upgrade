@@ -92,6 +92,19 @@ export default function Habit() {
       form.reset();
     }
   }
+  function handleOnClickDelete() {
+    // eslint-disable-next-line no-restricted-globals
+    if (confirm("Do you realy want to delete this habit")) {
+      const habitList = localStorage.getItem("habits");
+      const habits = JSON.parse(habitList);
+
+      const updatedHabitList = habits.filter(
+        (habit) => habit.name !== habitname
+      );
+
+      localStorage.setItem("habits", JSON.stringify(updatedHabitList));
+    }
+  }
   return (
     <>
       {habitState.length !== 0 && (
@@ -143,6 +156,12 @@ export default function Habit() {
               <p className="Habit__text">{habitState[1]} Minutes.</p>
               <button type="submit" className="Habit__button">
                 Submit
+              </button>
+              <button
+                onClick={handleOnClickDelete}
+                className="Habit__delete-button"
+              >
+                Delete
               </button>
             </form>
           )}
