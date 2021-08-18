@@ -33,7 +33,7 @@ function App() {
           <Route path="/create">
             <CreateHabit />
           </Route>
-          <Route path="/progressLogs">
+          <Route path="/progress-logs">
             <ProgressLogs />
           </Route>
           <Route path="/:habitname">
