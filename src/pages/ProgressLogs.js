@@ -30,13 +30,15 @@ export default function ProgressLogs() {
       const datesCurrentMonth = allDates.filter((date) => {
         return date[1] === today[1] && date[2] === today[2];
       });
-      console.log(datesCurrentMonth);
+      const currentMonthDays = datesCurrentMonth.map((date) => {
+        return date[0];
+      });
       return (
         <section key={index} className="card">
           <h2 className="card__habitName">{habit.name}</h2>
           <h3>{months[today[1]] + " " + today[2]}</h3>
           <div className="card__streak">
-            <StreakItems dates={datesCurrentMonth} />
+            <StreakItems days={currentMonthDays} />
           </div>
         </section>
       );
