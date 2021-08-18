@@ -19,7 +19,9 @@ export default function Habit() {
       return habit.name === habitname;
     });
 
-    setHabitState([findHabit.level, findHabit.remainingTime, findHabit.rank]);
+    if (findHabit) {
+      setHabitState([findHabit.level, findHabit.remainingTime, findHabit.rank]);
+    }
   }, [habitname]);
 
   function handleOnSubmit(event) {
@@ -75,63 +77,67 @@ export default function Habit() {
     localStorage.setItem("habits", JSON.stringify(updatedHabits));
     form.reset();
   }
+
   return (
     <>
-      <main className="Habit__main">
-        <Toaster />
-        <h2 className="Habit__title">{habitname}</h2>
-        <p className="Habit__text">{habitState[2]}</p>
-        <p className="Habit__text">Current Level {habitState[0]}</p>
-        {habitState[0] < maxLevel && (
-          <form onSubmit={handleOnSubmit} className="Habit__form">
-            <section className="Habit__time">
-              <div>
-                <label className="Habit__label" htmlFor="hours">
-                  Hours:
-                </label>
-                <input
-                  type="number"
-                  className="Habit__input"
-                  name="hours"
-                  id="hours"
-                  autoComplete="off"
-                  min="0"
-                  max="20"
-                  placeholder="3"
-                  required
-                />
-              </div>
-              <div>
-                <label className="Habit__label" htmlFor="minutes">
-                  Minutes:
-                </label>
-                <input
-                  type="number"
-                  className="Habit__input"
-                  name="minutes"
-                  id="minutes"
-                  autoComplete="off"
-                  min="0"
-                  max="59"
-                  placeholder="20"
-                  required
-                />
-              </div>
-            </section>
+      {habitState.length !== 0 && (
+        <main className="Habit__main">
+          <Toaster />
+          <h2 className="Habit__title">{habitname}</h2>
+          <p className="Habit__text">{habitState[2]}</p>
+          <p className="Habit__text">Current Level {habitState[0]}</p>
+          {habitState[0] < maxLevel && (
+            <form onSubmit={handleOnSubmit} className="Habit__form">
+              <section className="Habit__time">
+                <div>
+                  <label className="Habit__label" htmlFor="hours">
+                    Hours:
+                  </label>
+                  <input
+                    type="number"
+                    className="Habit__input"
+                    name="hours"
+                    id="hours"
+                    autoComplete="off"
+                    min="0"
+                    max="20"
+                    placeholder="3"
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="Habit__label" htmlFor="minutes">
+                    Minutes:
+                  </label>
+                  <input
+                    type="number"
+                    className="Habit__input"
+                    name="minutes"
+                    id="minutes"
+                    autoComplete="off"
+                    min="0"
+                    max="59"
+                    placeholder="20"
+                    required
+                  />
+                </div>
+              </section>
 
-            <p className="Habit__text">
-              Remaining time till Level {habitState[0] + 1}
-            </p>
-            <p className="Habit__text">{habitState[1]} Minutes.</p>
-            <button type="submit" className="Habit__button">
-              Submit
-            </button>
-          </form>
-        )}
-        {habitState[0] === maxLevel && (
-          <p className="Habit__text">This is the highest possible level.</p>
-        )}
-      </main>
+              <p className="Habit__text">
+                Remaining time till Level {habitState[0] + 1}
+              </p>
+              <p className="Habit__text">{habitState[1]} Minutes.</p>
+              <button type="submit" className="Habit__button">
+                Submit
+              </button>
+            </form>
+          )}
+          {habitState[0] === maxLevel && (
+            <p className="Habit__text">This is the highest possible level.</p>
+          )}
+        </main>
+      )}
+      {habitState.length === 0 && <h2>This site does not exist !</h2>}
       <Footer />
     </>
   );
