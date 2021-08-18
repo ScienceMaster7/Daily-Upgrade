@@ -14,13 +14,19 @@ export default function Habit() {
 
   useEffect(() => {
     const habitList = localStorage.getItem("habits");
-    const habits = JSON.parse(habitList);
-    const findHabit = habits.find((habit) => {
-      return habit.name === habitname;
-    });
 
-    if (findHabit) {
-      setHabitState([findHabit.level, findHabit.remainingTime, findHabit.rank]);
+    if (habitList) {
+      const habits = JSON.parse(habitList);
+      const findHabit = habits.find((habit) => {
+        return habit.name === habitname;
+      });
+      if (findHabit) {
+        setHabitState([
+          findHabit.level,
+          findHabit.remainingTime,
+          findHabit.rank,
+        ]);
+      }
     }
   }, [habitname]);
 
