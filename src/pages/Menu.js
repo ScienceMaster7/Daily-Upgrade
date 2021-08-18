@@ -9,7 +9,7 @@ export default function Menu() {
         <NavLink to="/create" className="Menu__link">
           <button className="Menu__button">Add New Habit</button>
         </NavLink>
-        <NavLink to="/progressLogs" className="Menu__Link">
+        <NavLink to="/progress-logs" className="Menu__Link">
           <button className="Menu__button">Progress Logs</button>
         </NavLink>
       </main>
