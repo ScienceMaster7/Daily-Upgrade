@@ -10,6 +10,9 @@ export default function ProgressLogs() {
       return (
         <section key={index} className="card">
           <h2 className="card__habitName">{habit.name}</h2>
+          <h3>
+            {habit.dateTracker[habit.dateTracker.length - 1].date.slice(3)}
+          </h3>
           <div className="card__streak">
             <StreakItems dates={habit.dateTracker} />
           </div>
