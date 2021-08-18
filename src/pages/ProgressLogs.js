@@ -23,15 +23,12 @@ export default function ProgressLogs() {
   if (habits) {
     habitCards = habits.map((habit, index) => {
       const today = todaysDate();
-      const datesCurrentMonth = habit.dateTracker.map((dateobject) => {
-        let dateCurrentMonth;
-        if (
-          dateobject.date[1] === today[1] &&
-          dateobject.date[2] === today[2]
-        ) {
-          dateCurrentMonth = dateobject.date;
-        }
-        return dateCurrentMonth;
+      const allDates = habit.dateTracker.map((dateObject) => {
+        return dateObject.date;
+      });
+
+      const datesCurrentMonth = allDates.filter((date) => {
+        return date[1] === today[1] && date[2] === today[2];
       });
       console.log(datesCurrentMonth);
       return (
