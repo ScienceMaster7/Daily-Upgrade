@@ -1,5 +1,5 @@
 import Footer from "../components/Footer";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import toast, { Toaster } from "react-hot-toast";
 
@@ -157,12 +157,14 @@ export default function Habit() {
               <button type="submit" className="Habit__button">
                 Submit
               </button>
-              <button
-                onClick={handleOnClickDelete}
-                className="Habit__delete-button"
-              >
-                Delete
-              </button>
+              <Link to="/home" className="link">
+                <button
+                  onClick={handleOnClickDelete}
+                  className="Habit__delete-button"
+                >
+                  Delete
+                </button>
+              </Link>
             </form>
           )}
           {habitState[0] === maxLevel && (
