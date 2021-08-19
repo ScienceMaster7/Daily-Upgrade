@@ -29,10 +29,20 @@
   flex-wrap: wrap;
 }
 
-.streak__item {
+.streak__item--active {
   background-image: linear-gradient(
     to bottom right,
-    var(--streak-gradient-color)
+    var(--streak-active-gradient-color)
+  );
+  height: 2rem;
+  width: 2rem;
+  margin: 0 0 1rem 0;
+}
+
+.streak__item--inactive {
+  background-image: linear-gradient(
+    to bottom right,
+    var(--streak-inactive-gradient-color)
   );
   height: 2rem;
   width: 2rem;

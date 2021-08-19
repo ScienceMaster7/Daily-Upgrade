@@ -1,5 +1,5 @@
 import Footer from "../components/Footer";
-import { useParams, Link } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { useState, useEffect } from "react";
 import toast, { Toaster } from "react-hot-toast";
 
@@ -92,9 +92,10 @@ export default function Habit() {
       form.reset();
     }
   }
+  let history = useHistory();
+
   function handleOnClickDelete() {
-    // eslint-disable-next-line no-restricted-globals
-    if (confirm("Do you realy want to delete this habit")) {
+    if (window.confirm("Do you realy want to delete this habit")) {
       const habitList = localStorage.getItem("habits");
       const habits = JSON.parse(habitList);
 
@@ -103,6 +104,7 @@ export default function Habit() {
       );
 
       localStorage.setItem("habits", JSON.stringify(updatedHabitList));
+      history.push("/home");
     }
   }
   return (
@@ -157,14 +159,12 @@ export default function Habit() {
               <button type="submit" className="Habit__button">
                 Submit
               </button>
-              <Link to="/home" className="link">
-                <button
-                  onClick={handleOnClickDelete}
-                  className="Habit__delete-button"
-                >
-                  Delete
-                </button>
-              </Link>
+              <button
+                onClick={handleOnClickDelete}
+                className="Habit__delete-button"
+              >
+                Delete
+              </button>
             </form>
           )}
           {habitState[0] === maxLevel && (

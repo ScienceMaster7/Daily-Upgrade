@@ -5,7 +5,14 @@ import "react-circular-progressbar/dist/styles.css";
 export default function HabitList() {
   const habits = JSON.parse(localStorage.getItem("habits"));
 
-  if (habits) {
+  if (!habits || habits.length === 0) {
+    return (
+      <p className="Home__text--no-habbits">
+        There are no habbits stored. You can find the Create New section in the
+        Menu to create your first habbit.
+      </p>
+    );
+  } else {
     const renderedHabits = habits.map((habit, index) => {
       let percentage = habit.progressPercentage;
       return (
@@ -25,12 +32,5 @@ export default function HabitList() {
       );
     });
     return renderedHabits;
-  } else {
-    return (
-      <p className="Home__text--no-habbits">
-        There are no habbits stored. You can find the Create New section in the
-        Menu to create your first habbit.
-      </p>
-    );
   }
 }

@@ -1,8 +1,6 @@
 export default function todaysDate() {
   let today = new Date();
-  let date = [today.getDate(), today.getMonth(), today.getFullYear()];
-
-  today = date.join(".");
+  today = [today.getDate(), today.getMonth(), today.getFullYear()];
 
   return today;
 }

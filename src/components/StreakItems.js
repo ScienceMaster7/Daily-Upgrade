@@ -1,10 +1,18 @@
-export default function StreakItems({ dates }) {
-  const renderedDates = dates.map((date, index) => {
-    return (
-      <div key={index} className="streak__item">
-        <p className="streak__item__date">{date.date.slice(0, 2)}</p>
+export default function StreakItems({ days }) {
+  let renderedDays = [];
+  for (let i = 1; i < days[days.length - 1]; i++) {
+    const renderedDay = (
+      <div
+        key={i}
+        className={
+          days.includes(i) ? "streak__item--active" : "streak__item--inactive"
+        }
+      >
+        <p className="streak__item__date">{i}</p>
       </div>
     );
-  });
-  return renderedDates;
+    renderedDays.push(renderedDay);
+  }
+
+  return renderedDays;
 }
