@@ -20,7 +20,9 @@ export default function ProgressLogs() {
   ];
   const habits = JSON.parse(localStorage.getItem("habits"));
   let habitCards;
-  if (habits) {
+  if (!habits || habits.length === 0) {
+    habitCards = undefined;
+  } else {
     habitCards = habits.map((habit, index) => {
       const today = todaysDate();
       const allDates = habit.dateTracker.map((dateObject) => {
