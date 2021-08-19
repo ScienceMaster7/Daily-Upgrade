@@ -20,38 +20,6 @@ export default function CreateHabit() {
       rank: "Beginner",
       dateTracker: [
         {
-          date: [7, 7, 2020],
-          timeToday: 0,
-        },
-        {
-          date: [7, 6, 2021],
-          timeToday: 0,
-        },
-        {
-          date: [1, 7, 2021],
-          timeToday: 0,
-        },
-        {
-          date: [5, 7, 2021],
-          timeToday: 0,
-        },
-        {
-          date: [6, 7, 2021],
-          timeToday: 0,
-        },
-        {
-          date: [7, 7, 2021],
-          timeToday: 0,
-        },
-        {
-          date: [16, 7, 2021],
-          timeToday: 0,
-        },
-        {
-          date: [17, 7, 2021],
-          timeToday: 0,
-        },
-        {
           date: today,
           timeToday: 0,
         },
