@@ -19,10 +19,6 @@ export default function ProgressLogs() {
     }
   }, []);
 
-  // function OnClickHandleMonth() {
-  //   console.log("Month clicked");
-  // }
-
   return (
     <>
       {cards && <main className="ProgressLogs__main">{cards}</main>}
