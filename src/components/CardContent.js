@@ -24,9 +24,9 @@ export default function CardContent({ dateTracker }) {
   const [month, setMonth] = useState(today[1]);
   const [year, setYear] = useState(today[2]);
   const [availableMonths, setAvailableMonths] = useState();
-  const [monthSelection, setMonthSelection] = useState(false);
+  const [isMonthSelection, setIsMonthSelection] = useState(false);
   const [availableYears, setAvailableYears] = useState();
-  const [yearSelection, setYearSelection] = useState(false);
+  const [isYearSelection, setIsYearSelection] = useState(false);
 
   const allDates = dateTracker.map((dateObject) => {
     return dateObject.date;
@@ -43,7 +43,7 @@ export default function CardContent({ dateTracker }) {
   const [days, setDays] = useState(currentMonthDays);
 
   function onClickHandleMonth() {
-    if (yearSelection === true) {
+    if (isYearSelection === true) {
       toast("You can't select a month while selecting a Year");
     } else {
       const datesSelectedYear = allDates.filter((date) => {
@@ -58,7 +58,7 @@ export default function CardContent({ dateTracker }) {
         }
       }
       setAvailableMonths(months);
-      setMonthSelection(true);
+      setIsMonthSelection(true);
     }
   }
 
@@ -71,11 +71,11 @@ export default function CardContent({ dateTracker }) {
       return date[0];
     });
     setDays(newMonthDays);
-    setMonthSelection(false);
+    setIsMonthSelection(false);
   }
 
   function onClickHandleYear() {
-    if (monthSelection === true) {
+    if (isMonthSelection === true) {
       toast("You can't select a year while selecting a month.");
     } else {
       let years = [];
@@ -89,7 +89,7 @@ export default function CardContent({ dateTracker }) {
         }
       }
       setAvailableYears(years);
-      setYearSelection(true);
+      setIsYearSelection(true);
     }
   }
 
@@ -115,7 +115,7 @@ export default function CardContent({ dateTracker }) {
       });
       setDays(currentMonthDays);
     }
-    setYearSelection(false);
+    setIsYearSelection(false);
   }
   return (
     <>
@@ -126,26 +126,22 @@ export default function CardContent({ dateTracker }) {
       <h3 onClick={onClickHandleYear} className="card__year">
         {year}
       </h3>
-      {monthSelection === false && yearSelection === false && (
+      {isMonthSelection === false && isYearSelection === false && (
         <div className="card__streak">
           {days !== null && (
             <StreakItems days={days} month={month} today={today} />
           )}
         </div>
       )}
-      {monthSelection === true && (
-        <div>
-          <SelectMonths
-            monthNames={monthNames}
-            months={availableMonths}
-            callBack={monthCallback}
-          />
-        </div>
+      {isMonthSelection && (
+        <SelectMonths
+          monthNames={monthNames}
+          months={availableMonths}
+          callBack={monthCallback}
+        />
       )}
-      {yearSelection === true && (
-        <div>
-          <SelectYears years={availableYears} callBack={yearCallback} />
-        </div>
+      {isYearSelection && (
+        <SelectYears years={availableYears} callBack={yearCallback} />
       )}
     </>
   );

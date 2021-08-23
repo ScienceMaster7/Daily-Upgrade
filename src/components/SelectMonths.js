@@ -4,14 +4,13 @@ export default function SelectMonths({ monthNames, months, callBack }) {
     callBack(month);
   }
 
-  let renderedButtons = [];
-  for (let i = 0; i < months.length; i++) {
-    const monthButton = (
-      <button onClick={handleOnClickNewMonth} key={i} value={months[i]}>
-        {monthNames[months[i]]}
+  let renderedButtons = months.map((month, index) => {
+    return (
+      <button onClick={handleOnClickNewMonth} key={index} value={month}>
+        {monthNames[month]}
       </button>
     );
-    renderedButtons.push(monthButton);
-  }
+  });
+
   return renderedButtons;
 }
