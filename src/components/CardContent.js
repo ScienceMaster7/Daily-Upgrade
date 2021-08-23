@@ -23,6 +23,10 @@ export default function CardContent({ dateTracker }) {
   const today = todaysDate();
   const [month, setMonth] = useState(today[1]);
   const [year, setYear] = useState(today[2]);
+  const [availableMonths, setAvailableMonths] = useState();
+  const [monthSelection, setMonthSelection] = useState(false);
+  const [availableYears, setAvailableYears] = useState();
+  const [yearSelection, setYearSelection] = useState(false);
 
   const allDates = dateTracker.map((dateObject) => {
     return dateObject.date;
@@ -37,10 +41,6 @@ export default function CardContent({ dateTracker }) {
   });
 
   const [days, setDays] = useState(currentMonthDays);
-  const [availableMonths, setAvailableMonths] = useState();
-  const [monthSelection, setMonthSelection] = useState(false);
-  const [availableYears, setAvailableYears] = useState();
-  const [yearSelection, setYearSelection] = useState(false);
 
   function onClickHandleMonth() {
     if (yearSelection === true) {
