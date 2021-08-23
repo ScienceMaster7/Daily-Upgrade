@@ -4,6 +4,7 @@ export default function StreakItems({ days, month, year, today }) {
 
   if (month === today[1] && year === today[2]) {
     lastDay = days[days.length - 1];
+
   } else if (month === 1) {
     lastDay = 28;
   } else if (month % 2 === 0 && month < 7) {
