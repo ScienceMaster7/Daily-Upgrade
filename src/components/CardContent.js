@@ -63,13 +63,13 @@ export default function CardContent({ dateTracker }) {
   }
 
   function monthCallback(newMonth) {
-    setMonth(Number(newMonth));
     const datesNewMonth = allDates.filter((date) => {
       return date[1] === Number(newMonth) && date[2] === year;
     });
     const newMonthDays = datesNewMonth.map((date) => {
       return date[0];
     });
+    setMonth(Number(newMonth));
     setDays(newMonthDays);
     setIsMonthSelection(false);
   }
@@ -94,8 +94,6 @@ export default function CardContent({ dateTracker }) {
   }
 
   function yearCallback(newYear) {
-    setYear(Number(newYear));
-
     const datesCurrentMonth = allDates.filter((date) => {
       return date[1] === month && date[2] === Number(newYear);
     });
@@ -115,17 +113,18 @@ export default function CardContent({ dateTracker }) {
       });
       setDays(currentMonthDays);
     }
+    setYear(Number(newYear));
     setIsYearSelection(false);
   }
   return (
     <>
       <Toaster />
-      <h3 onClick={onClickHandleMonth} className="card__month">
-        {monthNames[month]}
-      </h3>
       <h3 onClick={onClickHandleYear} className="card__year">
         {year}
       </h3>
+      <h4 onClick={onClickHandleMonth} className="card__month">
+        {monthNames[month]}
+      </h4>
       {isMonthSelection === false && isYearSelection === false && (
         <div className="card__streak">
           {days !== null && (

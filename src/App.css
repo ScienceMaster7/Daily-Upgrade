@@ -31,4 +31,5 @@
 .Header__heading {
   margin: 0.5rem;
   color: var(--primary-color);
+  font-size: var(--big-text);
 }
