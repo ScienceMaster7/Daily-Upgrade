@@ -1,5 +1,5 @@
 export default function SelectMonths({ monthNames, months, callBack }) {
-  function handleOnClick(event) {
+  function handleOnClickNewMonth(event) {
     const month = event.target.value;
     callBack(month);
   }
@@ -7,7 +7,7 @@ export default function SelectMonths({ monthNames, months, callBack }) {
   let renderedButtons = [];
   for (let i = 0; i < months.length; i++) {
     const monthButton = (
-      <button onClick={handleOnClick} key={i} value={months[i]}>
+      <button onClick={handleOnClickNewMonth} key={i} value={months[i]}>
         {monthNames[months[i]]}
       </button>
     );

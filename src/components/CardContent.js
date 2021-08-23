@@ -2,6 +2,8 @@ import { useState } from "react";
 import todaysDate from "../services/todaysDate";
 import StreakItems from "./StreakItems";
 import SelectMonths from "./SelectMonths";
+import SelectYears from "./SelectYears";
+import toast, { Toaster } from "react-hot-toast";
 
 export default function CardContent({ dateTracker }) {
   const monthNames = [
@@ -36,8 +38,9 @@ export default function CardContent({ dateTracker }) {
 
   const [days, setDays] = useState(currentMonthDays);
   const [availableMonths, setAvailableMonths] = useState();
-
   const [monthSelection, setMonthSelection] = useState(false);
+  const [availableYears, setAvailableYears] = useState();
+  const [yearSelection, setYearSelection] = useState(false);
 
   function onClickHandleMonth() {
     const datesSelectedYear = allDates.filter((date) => {
@@ -56,7 +59,7 @@ export default function CardContent({ dateTracker }) {
   }
 
   function monthCallback(newMonth) {
-    setMonth(newMonth);
+    setMonth(Number(newMonth));
     const datesNewMonth = allDates.filter((date) => {
       return date[1] === Number(newMonth) && date[2] === year;
     });
@@ -67,24 +70,72 @@ export default function CardContent({ dateTracker }) {
     setMonthSelection(false);
   }
 
+  function onClickHandleYear() {
+    let years = [];
+    const allYears = allDates.map((date) => {
+      return date[2];
+    });
+
+    for (let i = 0; i < allYears.length; i++) {
+      if (!years.includes(allYears[i])) {
+        years.push(allYears[i]);
+      }
+    }
+
+    setAvailableYears(years);
+    setYearSelection(true);
+  }
+
+  function yearCallback(newYear) {
+    setYear(Number(newYear));
+
+    const datesCurrentMonth = allDates.filter((date) => {
+      return date[1] === month && date[2] === Number(newYear);
+    });
+
+    if (datesCurrentMonth.length === 0) {
+      setDays(null);
+      toast(
+        monthNames[month] +
+          " is not available for " +
+          newYear +
+          ". Please check the available months.",
+        { duration: 3000 }
+      );
+    } else {
+      const currentMonthDays = datesCurrentMonth.map((date) => {
+        return date[0];
+      });
+      setDays(currentMonthDays);
+    }
+    setYearSelection(false);
+  }
   return (
     <>
+      <Toaster />
       <h3 onClick={onClickHandleMonth} className="card__month">
         {monthNames[month]}
       </h3>
-      <h3 className="card__year">{year}</h3>
-      {monthSelection === false && (
+      <h3 onClick={onClickHandleYear} className="card__year">
+        {year}
+      </h3>
+      {monthSelection === false && yearSelection === false && (
         <div className="card__streak">
-          <StreakItems days={days} />
+          {days !== null && <StreakItems days={days} />}
         </div>
       )}
-      {monthSelection === true && (
+      {monthSelection === true && yearSelection === false && (
         <div>
           <SelectMonths
             monthNames={monthNames}
             months={availableMonths}
             callBack={monthCallback}
           />
+        </div>
+      )}
+      {yearSelection === true && monthSelection === false && (
+        <div>
+          <SelectYears years={availableYears} callBack={yearCallback} />
         </div>
       )}
     </>
