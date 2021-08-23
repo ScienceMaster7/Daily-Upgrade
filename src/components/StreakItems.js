@@ -1,15 +1,17 @@
-export default function StreakItems({ days, month, today }) {
+export default function StreakItems({ days, month, year, today }) {
   let renderedDays = [];
   let lastDay;
 
-  if (month === today[1]) {
+  if (month === today[1] && year === today[2]) {
     lastDay = days[days.length - 1];
   } else if (month === 1) {
     lastDay = 28;
-  } else if (month % 2 === 0) {
+  } else if (month % 2 === 0 && month < 7) {
     lastDay = 31;
-  } else {
+  } else if (month % 2 === 0 && month > 6) {
     lastDay = 30;
+  } else {
+    lastDay = 31;
   }
   for (let i = 1; i <= lastDay; i++) {
     const renderedDay = (

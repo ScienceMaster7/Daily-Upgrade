@@ -128,7 +128,7 @@ export default function CardContent({ dateTracker }) {
       {isMonthSelection === false && isYearSelection === false && (
         <div className="card__streak">
           {days !== null && (
-            <StreakItems days={days} month={month} today={today} />
+            <StreakItems days={days} month={month} year={year} today={today} />
           )}
         </div>
       )}
