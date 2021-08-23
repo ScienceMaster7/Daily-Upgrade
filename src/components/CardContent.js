@@ -54,6 +54,19 @@ export default function CardContent({ dateTracker }) {
     setAvailableMonths(months);
     setMonthSelection(true);
   }
+
+  function monthCallback(newMonth) {
+    setMonth(newMonth);
+    const datesNewMonth = allDates.filter((date) => {
+      return date[1] === Number(newMonth) && date[2] === year;
+    });
+    const newMonthDays = datesNewMonth.map((date) => {
+      return date[0];
+    });
+    setDays(newMonthDays);
+    setMonthSelection(false);
+  }
+
   return (
     <>
       <h3 onClick={onClickHandleMonth} className="card__month">
@@ -67,7 +80,11 @@ export default function CardContent({ dateTracker }) {
       )}
       {monthSelection === true && (
         <div>
-          <SelectMonths monthNames={monthNames} months={availableMonths} />
+          <SelectMonths
+            monthNames={monthNames}
+            months={availableMonths}
+            callBack={monthCallback}
+          />
         </div>
       )}
     </>

@@ -1,8 +1,13 @@
-export default function SelectMonths({ monthNames, months }) {
+export default function SelectMonths({ monthNames, months, callBack }) {
+  function handleOnClick(event) {
+    const month = event.target.value;
+    callBack(month);
+  }
+
   let renderedButtons = [];
   for (let i = 0; i < months.length; i++) {
     const monthButton = (
-      <button key={i} value={months[i]}>
+      <button onClick={handleOnClick} key={i} value={months[i]}>
         {monthNames[months[i]]}
       </button>
     );
