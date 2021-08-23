@@ -5,7 +5,12 @@ export default function SelectYears({ years, callBack }) {
 
   let renderedButtons = years.map((year, index) => {
     return (
-      <button onClick={handleOnClickNewYear} key={index} value={year}>
+      <button
+        className="card__selectButton"
+        onClick={handleOnClickNewYear}
+        key={index}
+        value={year}
+      >
         {year}
       </button>
     );

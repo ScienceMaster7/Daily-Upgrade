@@ -6,7 +6,12 @@ export default function SelectMonths({ monthNames, months, callBack }) {
 
   let renderedButtons = months.map((month, index) => {
     return (
-      <button onClick={handleOnClickNewMonth} key={index} value={month}>
+      <button
+        className="card__selectButton"
+        onClick={handleOnClickNewMonth}
+        key={index}
+        value={month}
+      >
         {monthNames[month]}
       </button>
     );
