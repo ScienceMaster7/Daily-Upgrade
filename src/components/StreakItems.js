@@ -3,7 +3,7 @@ export default function StreakItems({ days, month, today }) {
   let lastDay;
 
   if (month === today[1]) {
-    lastDay = days[days.length - 1];
+    lastDay = today[0];
   } else if (month === 1) {
     lastDay = 28;
   } else if (month % 2 === 0) {

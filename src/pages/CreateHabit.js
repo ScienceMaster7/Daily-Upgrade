@@ -129,7 +129,10 @@ export default function CreateHabit() {
           }
         );
       } else {
-        alert("You already created this habit");
+        toast("You already created this habit", {
+          duration: 3000,
+          icon: "❌",
+        });
       }
     } else {
       const storedhabbits = [];
