@@ -1,6 +1,6 @@
 export default function StreakItems({ days }) {
   let renderedDays = [];
-  for (let i = 1; i < days[days.length - 1]; i++) {
+  for (let i = 1; i <= days[days.length - 1]; i++) {
     const renderedDay = (
       <div
         key={i}
