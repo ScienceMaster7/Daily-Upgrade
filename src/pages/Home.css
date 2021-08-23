@@ -13,8 +13,8 @@
 .Home__button {
   background-color: var(--primary-color);
   color: var(--primary-text-color);
-  height: 135px;
-  width: 135px;
+  height: 250px;
+  width: 250px;
   border-radius: 50%;
   border-style: initial;
   padding: 2rem;
@@ -25,15 +25,15 @@
 
 .Home__button__text {
   position: relative;
-  bottom: 140px;
+  bottom: 185px;
 }
 
 .Home__progressbar {
   position: relative;
   right: 32px;
   bottom: 32px;
-  height: 135px;
-  width: 135px;
+  height: 250px;
+  width: 250px;
 }
 
 .Home__text--no-habbits {
