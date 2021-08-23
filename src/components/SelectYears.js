@@ -3,14 +3,17 @@ export default function SelectYears({ years, callBack }) {
     callBack(event.target.value);
   }
 
-  let renderedButtons = [];
-  for (let i = 0; i < years.length; i++) {
-    const monthButton = (
-      <button onClick={handleOnClickNewYear} key={i} value={years[i]}>
-        {years[i]}
+  let renderedButtons = years.map((year, index) => {
+    return (
+      <button
+        className="card__selectButton"
+        onClick={handleOnClickNewYear}
+        key={index}
+        value={year}
+      >
+        {year}
       </button>
     );
-    renderedButtons.push(monthButton);
-  }
+  });
   return renderedButtons;
 }
