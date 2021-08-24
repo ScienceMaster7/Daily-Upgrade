@@ -110,11 +110,12 @@ export default function Habit() {
       history.push("/home");
     }
   }
-  if (isConfettiRain) {
-    setTimeout(() => {
+  useEffect(() => {
+    const timer = setTimeout(() => {
       setIsConfettiRain(false);
-    }, 2900);
-  }
+    }, 5000);
+    return () => clearTimeout(timer);
+  }, [isConfettiRain]);
   return (
     <>
       {habitState.length !== 0 && (
