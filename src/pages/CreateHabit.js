@@ -76,6 +76,7 @@ export default function CreateHabit() {
             id="newHabit"
             placeholder="New Habit"
             autoComplete="off"
+            maxLength="25"
             required
           />
           <button className="CreateHabit__button" type="submit">
