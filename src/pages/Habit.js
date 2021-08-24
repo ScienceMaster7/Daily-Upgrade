@@ -2,6 +2,7 @@ import Footer from "../components/Footer";
 import { useParams, useHistory } from "react-router-dom";
 import { useState, useEffect } from "react";
 import toast, { Toaster } from "react-hot-toast";
+import Confetti from "react-confetti";
 
 import "./Habit.css";
 import calculateLevels from "../services/CalculateLevels";
@@ -9,6 +10,7 @@ import updateDateTracker from "../services/updateDateTracker";
 export default function Habit() {
   const { habitname } = useParams();
   const [habitState, setHabitState] = useState([]);
+  const [isConfettiRain, setIsConfettiRain] = useState(false);
 
   const maxLevel = 1000;
 
@@ -64,6 +66,7 @@ export default function Habit() {
                 duration: 3000,
               }
             );
+            setIsConfettiRain(true);
           }
 
           if (updatedRank !== habitState[2]) {
@@ -107,11 +110,17 @@ export default function Habit() {
       history.push("/home");
     }
   }
+  if (isConfettiRain) {
+    setTimeout(() => {
+      setIsConfettiRain(false);
+    }, 2900);
+  }
   return (
     <>
       {habitState.length !== 0 && (
         <main className="Habit__main">
           <Toaster />
+          {isConfettiRain && <Confetti />}
           <h2 className="Habit__title">{habitname}</h2>
           <p className="Habit__text">{habitState[2]}</p>
           <p className="Habit__text">Current Level {habitState[0]}</p>
