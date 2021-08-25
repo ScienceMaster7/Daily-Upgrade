@@ -1,15 +1,36 @@
 import { Link } from "react-router-dom";
 import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
+import Confetti from "react-confetti";
 
 export default function HabitList() {
   const habits = JSON.parse(localStorage.getItem("habits"));
 
-  if (!habits || habits.length === 0) {
+  if (!habits) {
+    return (
+      <>
+        <Confetti recycle={false} />
+        <h2 className="Home__heading--first-visit"> Welcome User!</h2>
+        <p className="Home__text--first-visit">
+          You can use this app to track how you progress in your already
+          existing habits and those you wish to have.
+        </p>
+        <p className="Home__text--first-visit">
+          You can submit the time that that you have spent on a particular habit
+          and will be rewarded with Levels and Ranks.
+        </p>
+        <p className="Home__text--first-visit">
+          You can find the Add new Habit section in the Menu to create your
+          first Habit and start to Level up. You can find further explanation on
+          how to use this app in the Guide section.
+        </p>
+      </>
+    );
+  } else if (habits.length === 0) {
     return (
       <p className="Home__text--no-habbits">
         There are no habbits stored. You can find the Create New section in the
-        Menu to create your first habbit.
+        Menu to create a new habbit.
       </p>
     );
   } else {

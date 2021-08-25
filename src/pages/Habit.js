@@ -121,7 +121,7 @@ export default function Habit() {
       {habitState.length !== 0 && (
         <main className="Habit__main">
           <Toaster />
-          {isConfettiRain && <Confetti />}
+          {isConfettiRain && <Confetti recycle={false} />}
           <h2 className="Habit__title">{habitname}</h2>
           <p className="Habit__text">{habitState[2]}</p>
           <p className="Habit__text">Current Level {habitState[0]}</p>
