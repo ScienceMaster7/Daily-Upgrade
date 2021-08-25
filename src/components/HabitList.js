@@ -10,7 +10,7 @@ export default function HabitList() {
     return (
       <>
         <Confetti recycle={false} />
-        <h2> Welcome User!</h2>
+        <h2 className="Home__heading--first-visit"> Welcome User!</h2>
         <p className="Home__text--first-visit">
           You can use this app to track how you progress in your already
           existing habits and those you wish to have.
@@ -20,9 +20,9 @@ export default function HabitList() {
           and will be rewarded with Levels and Ranks.
         </p>
         <p className="Home__text--first-visit">
-          You can find the Create New section in the Menu to create your first
-          Habit and start to Level up. You can find further explanation on how
-          to use this app in the Guide section.
+          You can find the Add new Habit section in the Menu to create your
+          first Habit and start to Level up. You can find further explanation on
+          how to use this app in the Guide section.
         </p>
       </>
     );
