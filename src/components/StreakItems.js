@@ -1,10 +1,10 @@
+import PropTypes from "prop-types";
 export default function StreakItems({ days, month, year, today }) {
   let renderedDays = [];
   let lastDay;
 
   if (month === today[1] && year === today[2]) {
     lastDay = days[days.length - 1];
-
   } else if (month === 1) {
     lastDay = 28;
   } else if (month % 2 === 0 && month < 7) {
@@ -30,3 +30,10 @@ export default function StreakItems({ days, month, year, today }) {
 
   return renderedDays;
 }
+
+StreakItems.propTypes = {
+  days: PropTypes.arrayOf(PropTypes.number),
+  month: PropTypes.number,
+  year: PropTypes.number,
+  today: PropTypes.arrayOf(PropTypes.number),
+};
