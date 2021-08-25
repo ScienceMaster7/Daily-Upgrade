@@ -37,11 +37,13 @@
 }
 
 .Home__text--first-visit {
+  text-align: center;
   padding: 1rem;
   font-size: var(--normal-text);
 }
 
 .Home__text--no-habbits {
+  text-align: center;
   margin: 1rem;
   font-size: var(--big-text);
 }

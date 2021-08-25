@@ -11,6 +11,7 @@ import Home from "./pages/Home";
 import CreateHabit from "./pages/CreateHabit";
 import Habit from "./pages/Habit";
 import ProgressLogs from "./pages/ProgressLogs";
+import AppFacts from "./pages/AppFacts";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 function App() {
@@ -35,6 +36,9 @@ function App() {
           </Route>
           <Route path="/progress-logs">
             <ProgressLogs />
+          </Route>
+          <Route path="/app-facts">
+            <AppFacts />
           </Route>
           <Route path="/:habitname">
             <Habit />
