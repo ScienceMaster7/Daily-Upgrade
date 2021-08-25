@@ -36,6 +36,11 @@
   width: 250px;
 }
 
+.Home__text--first-visit {
+  padding: 1rem;
+  font-size: var(--normal-text);
+}
+
 .Home__text--no-habbits {
   margin: 1rem;
   font-size: var(--big-text);
