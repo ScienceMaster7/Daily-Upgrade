@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 export default function SelectYears({ years, callBack }) {
   function handleOnClickNewYear(event) {
     callBack(event.target.value);
@@ -17,3 +19,8 @@ export default function SelectYears({ years, callBack }) {
   });
   return renderedButtons;
 }
+
+SelectYears.propTypes = {
+  years: PropTypes.arrayOf(PropTypes.number),
+  callBack: PropTypes.func,
+};
