@@ -4,6 +4,7 @@ import StreakItems from "./StreakItems";
 import SelectMonths from "./SelectMonths";
 import SelectYears from "./SelectYears";
 import toast, { Toaster } from "react-hot-toast";
+import PropTypes from "prop-types";
 
 export default function CardContent({ dateTracker }) {
   const monthNames = [
@@ -145,3 +146,7 @@ export default function CardContent({ dateTracker }) {
     </>
   );
 }
+
+CardContent.propTypes = {
+  dateTracker: PropTypes.array,
+};

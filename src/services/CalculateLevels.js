@@ -1,6 +1,3 @@
-/* This Function receives two Arguments The current Level this habit is at 
-and a number that represents the total amount of time the user has spent on 
-this habit.*/
 export default function calculateLevels(currentLevel, timeCount) {
   let timePreviousLevels = 0;
   let level = currentLevel;

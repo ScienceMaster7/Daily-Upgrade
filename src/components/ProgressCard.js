@@ -1,4 +1,5 @@
 import CardContent from "./CardContent";
+import PropTypes from "prop-types";
 
 export default function ProgressCard({ habit }) {
   return (
@@ -8,3 +9,7 @@ export default function ProgressCard({ habit }) {
     </section>
   );
 }
+
+ProgressCard.propTypes = {
+  habit: PropTypes.object,
+};
