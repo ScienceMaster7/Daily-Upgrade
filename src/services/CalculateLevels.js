@@ -1,5 +1,3 @@
-import PropTypes from "prop-types";
-
 export default function calculateLevels(currentLevel, timeCount) {
   let timePreviousLevels = 0;
   let level = currentLevel;
@@ -129,8 +127,3 @@ current Level time is greater then the requirement. */
 
   return [level, remainingTime, progressPercentage, rank];
 }
-
-calculateLevels.propTypes = {
-  currentLevel: PropTypes.number,
-  timeCount: PropTypes.number,
-};
