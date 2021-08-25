@@ -15,6 +15,9 @@ export default function Menu() {
         <NavLink to="/app-facts" className="Menu__Link">
           <button className="Menu__button">App Facts</button>
         </NavLink>
+        <NavLink to="/challenges" className="Menu__Link">
+          <button className="Menu__button">Challenges</button>
+        </NavLink>
       </main>
       <Footer />
     </>

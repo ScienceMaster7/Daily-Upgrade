@@ -12,6 +12,8 @@ import CreateHabit from "./pages/CreateHabit";
 import Habit from "./pages/Habit";
 import ProgressLogs from "./pages/ProgressLogs";
 import AppFacts from "./pages/AppFacts";
+import Challenges from "./pages/Challenges";
+import NewChallenges from "./pages/NewChallenges";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 function App() {
@@ -39,6 +41,12 @@ function App() {
           </Route>
           <Route path="/app-facts">
             <AppFacts />
+          </Route>
+          <Route path="/challenges">
+            <Challenges />
+          </Route>
+          <Route path="/new-challenge">
+            <NewChallenges />
           </Route>
           <Route path="/:habitname">
             <Habit />

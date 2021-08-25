@@ -1,13 +1,10 @@
-.Menu__main {
+.Challenges__main {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.Menu__link {
-  text-decoration: none;
-}
 
-.Menu__button {
+.Challenges__button {
   background-color: var(--primary-color);
   color: var(--primary-text-color);
   width: 320px;
