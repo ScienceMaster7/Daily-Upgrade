@@ -11,6 +11,9 @@ export default function ChallengeCard({ challengeObject }) {
       localStorage.setItem("challenges", JSON.stringify(updatedHabitList));
     }
   }
+  function handleOnClickStart() {
+    console.log("start clicked");
+  }
   return (
     <section className="CurrentChallenges__card">
       <h2 className="CurrentChallenges__card__heading">
@@ -28,7 +31,12 @@ export default function ChallengeCard({ challengeObject }) {
       >
         Delete
       </button>
-      <button className="CurrentChallenges__card__button-accept">Start</button>
+      <button
+        onClick={handleOnClickStart}
+        className="CurrentChallenges__card__button-accept"
+      >
+        Start
+      </button>
     </section>
   );
 }

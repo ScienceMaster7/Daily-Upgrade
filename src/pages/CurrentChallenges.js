@@ -17,7 +17,7 @@ export default function CurrentChallenges() {
 
       setCards(habitCards);
     }
-  }, [cards]);
+  }, []);
   return (
     <>
       {cards && <main className="CurrentChallenges__main">{cards}</main>}
