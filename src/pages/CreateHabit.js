@@ -42,12 +42,9 @@ export default function CreateHabit() {
       if (validated) {
         storedhabbits.push(newHabit);
         localStorage.setItem("habits", JSON.stringify(storedhabbits));
-        toast.success(
-          `You have Successfully added the habbit ${newHabitName}`,
-          {
-            duration: 3000,
-          }
-        );
+        toast.success(`You have Successfully added the habit ${newHabitName}`, {
+          duration: 3000,
+        });
       } else {
         toast("You already created this habit", {
           duration: 3000,
@@ -58,7 +55,7 @@ export default function CreateHabit() {
       const storedhabbits = [];
       storedhabbits.push(newHabit);
       localStorage.setItem("habits", JSON.stringify(storedhabbits));
-      toast.success(`You have Successfully added the habbit ${newHabitName}`, {
+      toast.success(`You have Successfully added the habit ${newHabitName}`, {
         duration: 4000,
       });
     }
