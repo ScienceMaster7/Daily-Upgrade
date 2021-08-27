@@ -56,5 +56,5 @@ export default function HabitList({ habits }) {
 }
 
 HabitList.propTypes = {
-  habits: PropTypes.object,
+  habits: PropTypes.array,
 };
