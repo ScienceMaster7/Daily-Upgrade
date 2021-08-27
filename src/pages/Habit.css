@@ -34,6 +34,8 @@
 }
 
 .Habit__button {
+  position: relative;
+  left: 6rem;
   cursor: pointer;
   margin: 1rem;
   padding: 0.5rem;
@@ -45,6 +47,9 @@
 }
 
 .Habit__delete-button {
+  position: absolute;
+  bottom: 0.6rem;
+  left: 2rem;
   cursor: pointer;
   width: fit-content;
   padding: 0.5rem;
