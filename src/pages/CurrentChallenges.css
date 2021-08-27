@@ -2,6 +2,43 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
+}
+
+.CurrentChallenges__card {
+  background-color: var(--primary-color);
+  color: var(--primary-text-color);
+  margin: 1rem;
+  padding: 1rem;
+  width: 300px;
+}
+
+.card:last-of-type {
+  margin-bottom: 4rem;
+}
+
+.CurrentChallenges__card__text {
+  margin: 0.5rem 0;
+}
+
+.CurrentChallenges__card__button-decline {
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  margin-right: 2rem;
+  color: var(--primary-text-color);
+  background-color: red;
+  border-style: unset;
+  border-radius: 10px;
+}
+
+.CurrentChallenges__card__button-accept {
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  margin-left: 2rem;
+  color: var(--primary-text-color);
+  background-color: green;
+  border-style: unset;
+  border-radius: 10px;
 }
 
 .CurrentChallenges__text {
