@@ -1,6 +1,6 @@
 import Footer from "../components/Footer";
 import "./NewChallenges.css";
-import toast from "react-hot-toast";
+import validateAndStore from "../services/validateAndStore";
 
 export default function NewChallenges() {
   function handleOnSubmitNewChallenge(event) {
@@ -17,45 +17,7 @@ export default function NewChallenges() {
       duration: challengeDuration,
     };
 
-    const challlenges = localStorage.getItem("challenges");
-
-    if (challlenges !== null) {
-      let validated = true;
-
-      const storedChallenges = JSON.parse(challlenges);
-
-      storedChallenges.forEach((challenge) => {
-        if (challenge.name === challengeName) {
-          validated = false;
-        }
-      });
-
-      if (validated) {
-        storedChallenges.push(newChallenge);
-        localStorage.setItem("challenges", JSON.stringify(storedChallenges));
-        toast.success(
-          `You have Successfully added the challenge ${challengeName}`,
-          {
-            duration: 3000,
-          }
-        );
-      } else {
-        toast("You already created this challenge", {
-          duration: 3000,
-          icon: "❌",
-        });
-      }
-    } else {
-      const storedChallenges = [];
-      storedChallenges.push(newChallenge);
-      localStorage.setItem("challenges", JSON.stringify(storedChallenges));
-      toast.success(
-        `You have Successfully added the challenge ${challengeName}`,
-        {
-          duration: 4000,
-        }
-      );
-    }
+    validateAndStore("challenges", newChallenge, challengeName);
     form.reset();
   }
   return (
