@@ -9,8 +9,6 @@ export default function calculateLevels(currentLevel, timeCount) {
   /* Here I calculate the total time it has taken the user to reach the 
   current level. */
   for (let i = 0; i < level; i++) {
-    /* This if statments are necesary because the Time needed to reach 
-    the next Level increase on with every rank.*/
     if (i < 5) {
       timePreviousLevels = timePreviousLevels + (i + 1) * 60;
     }

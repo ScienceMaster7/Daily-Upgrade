@@ -12,8 +12,8 @@ export default function Menu() {
         <NavLink to="/progress-logs" className="Menu__Link">
           <button className="Menu__button">Progress Logs</button>
         </NavLink>
-        <NavLink to="/app-facts" className="Menu__Link">
-          <button className="Menu__button">App Facts</button>
+        <NavLink to="/guide" className="Menu__Link">
+          <button className="Menu__button">Guide</button>
         </NavLink>
         <NavLink to="/challenges" className="Menu__Link">
           <button className="Menu__button">Challenges</button>

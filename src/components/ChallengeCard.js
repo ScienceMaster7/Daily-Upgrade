@@ -1,14 +1,13 @@
 export default function ChallengeCard({ challengeObject }) {
   function handleOnClickDelete() {
     if (window.confirm("Do you realy want to delete this habit")) {
-      const challengeList = localStorage.getItem("challenges");
-      const challenges = JSON.parse(challengeList);
+      const challenges = JSON.parse(localStorage.getItem("challenges"));
 
-      const updatedHabitList = challenges.filter(
+      const updatedChallenges = challenges.filter(
         (challenge) => challenge.name !== challengeObject.name
       );
 
-      localStorage.setItem("challenges", JSON.stringify(updatedHabitList));
+      localStorage.setItem("challenges", JSON.stringify(updatedChallenges));
     }
   }
   function handleOnClickStart() {

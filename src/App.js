@@ -11,18 +11,20 @@ import Home from "./pages/Home";
 import CreateHabit from "./pages/CreateHabit";
 import Habit from "./pages/Habit";
 import ProgressLogs from "./pages/ProgressLogs";
-import AppFacts from "./pages/AppFacts";
+import Guide from "./pages/Guide";
 import Challenges from "./pages/Challenges";
 import NewChallenges from "./pages/NewChallenges";
 import CurrentChallenges from "./pages/CurrentChallenges";
 import Accomplishments from "./pages/Accomplishments";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { Toaster } from "react-hot-toast";
 function App() {
   return (
     <Router>
       <div className="App">
         <header className="Header">
+          <Toaster />
           <Link to="/menu" className="Header__link">
             <FontAwesomeIcon icon={faBars} className="Header__menuIcon" />
           </Link>
@@ -41,8 +43,8 @@ function App() {
           <Route path="/progress-logs">
             <ProgressLogs />
           </Route>
-          <Route path="/app-facts">
-            <AppFacts />
+          <Route path="/guide">
+            <Guide />
           </Route>
           <Route path="/challenges">
             <Challenges />

@@ -3,7 +3,7 @@ import todaysDate from "../services/todaysDate";
 import StreakItems from "./StreakItems";
 import SelectMonths from "./SelectMonths";
 import SelectYears from "./SelectYears";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 import PropTypes from "prop-types";
 
 export default function CardContent({ dateTracker }) {
@@ -119,7 +119,6 @@ export default function CardContent({ dateTracker }) {
   }
   return (
     <>
-      <Toaster />
       <h3 onClick={onClickHandleYear} className="card__year">
         {year}
       </h3>
