@@ -11,7 +11,7 @@ import Home from "./pages/Home";
 import CreateHabit from "./pages/CreateHabit";
 import Habit from "./pages/Habit";
 import ProgressLogs from "./pages/ProgressLogs";
-import AppFacts from "./pages/AppFacts";
+import Guide from "./pages/Guide";
 import Challenges from "./pages/Challenges";
 import NewChallenges from "./pages/NewChallenges";
 import CurrentChallenges from "./pages/CurrentChallenges";
@@ -43,8 +43,8 @@ function App() {
           <Route path="/progress-logs">
             <ProgressLogs />
           </Route>
-          <Route path="/app-facts">
-            <AppFacts />
+          <Route path="/guide">
+            <Guide />
           </Route>
           <Route path="/challenges">
             <Challenges />
