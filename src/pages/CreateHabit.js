@@ -11,6 +11,7 @@ export default function CreateHabit() {
 
     const form = event.target;
     const newHabitName = form.newHabit.value;
+
     const newHabit = {
       name: newHabitName,
       timeCount: 0,

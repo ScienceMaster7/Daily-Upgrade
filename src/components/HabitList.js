@@ -2,10 +2,9 @@ import { Link } from "react-router-dom";
 import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import Confetti from "react-confetti";
+import PropTypes from "prop-types";
 
-export default function HabitList() {
-  const habits = JSON.parse(localStorage.getItem("habits"));
-
+export default function HabitList({ habits }) {
   if (!habits) {
     return (
       <>
@@ -55,3 +54,7 @@ export default function HabitList() {
     return renderedHabits;
   }
 }
+
+HabitList.propTypes = {
+  habits: PropTypes.object,
+};
