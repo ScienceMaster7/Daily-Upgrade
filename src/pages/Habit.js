@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 import Confetti from "react-confetti";
 
 import "./Habit.css";
-import calculateLevels from "../services/calculateLevels";
+import calculateLevels from "../services/CalculateLevels";
 import updateDateTracker from "../services/updateDateTracker";
 export default function Habit() {
   const { habitname } = useParams();
