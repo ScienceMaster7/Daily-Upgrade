@@ -18,11 +18,13 @@ import CurrentChallenges from "./pages/CurrentChallenges";
 import Accomplishments from "./pages/Accomplishments";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { Toaster } from "react-hot-toast";
 function App() {
   return (
     <Router>
       <div className="App">
         <header className="Header">
+          <Toaster />
           <Link to="/menu" className="Header__link">
             <FontAwesomeIcon icon={faBars} className="Header__menuIcon" />
           </Link>

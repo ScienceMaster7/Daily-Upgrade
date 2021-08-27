@@ -1,6 +1,6 @@
 import Footer from "../components/Footer";
 import "./CreateHabit.css";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 import todaysDate from "../services/todaysDate";
 
 export default function CreateHabit() {
@@ -64,7 +64,6 @@ export default function CreateHabit() {
   return (
     <>
       <main className="CreateHabit__main">
-        <Toaster />
         <form className="CreateHabit__form" onSubmit={handleOnSubmit}>
           <input
             className="CreateHabit__input"

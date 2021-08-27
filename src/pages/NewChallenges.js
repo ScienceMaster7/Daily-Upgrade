@@ -1,6 +1,6 @@
 import Footer from "../components/Footer";
 import "./NewChallenges.css";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 
 export default function NewChallenges() {
   function handleOnSubmitNewChallenge(event) {
@@ -61,7 +61,6 @@ export default function NewChallenges() {
   return (
     <>
       <main className="NewChallenges__main">
-        <Toaster />
         <form
           onSubmit={handleOnSubmitNewChallenge}
           className="NewChallenges__form"

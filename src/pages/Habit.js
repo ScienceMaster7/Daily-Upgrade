@@ -1,7 +1,7 @@
 import Footer from "../components/Footer";
 import { useParams, useHistory } from "react-router-dom";
 import { useState, useEffect } from "react";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 import Confetti from "react-confetti";
 
 import "./Habit.css";
@@ -120,7 +120,6 @@ export default function Habit() {
     <>
       {habitState.length !== 0 && (
         <main className="Habit__main">
-          <Toaster />
           {isConfettiRain && <Confetti recycle={false} />}
           <h2 className="Habit__title">{habitname}</h2>
           <p className="Habit__text">{habitState[2]}</p>
