@@ -7,6 +7,7 @@ export default function ChallengeCard({ challengeObject }) {
   const [cardContent, setCardContent] = useState(challengeObject);
   const [isStart, setIsStart] = useState(challengeObject.isStarted);
   const [isFinish, setIsFinish] = useState(challengeObject.isFinish);
+  const [isCompleted, setIsCompleted] = useState(challengeObject.completed);
 
   function handleOnClickDelete() {
     if (window.confirm("Do you realy want to delete this habit")) {
@@ -136,13 +137,47 @@ export default function ChallengeCard({ challengeObject }) {
     });
     localStorage.setItem("challenges", JSON.stringify(updatedChallenge));
   }
-  function handleOnClickFinish(params) {
-    console.log("Finish");
+  function handleOnClickFinish() {
+    if (cardContent.isDone) {
+      toast("Come back tomorrow, you already completed the part for today.", {
+        duration: 3000,
+        icon: "❌",
+      });
+    } else {
+      const challenges = JSON.parse(localStorage.getItem("challenges"));
+      const updateChallenge = challenges.map((challenge) => {
+        let update;
+        if (challenge.name === cardContent.name) {
+          update = {
+            name: challenge.name,
+            description: challenge.description,
+            duration: challenge.duration,
+            completed: true,
+          };
+          setIsCompleted(true);
+        } else {
+          update = {
+            name: challenge.name,
+            description: challenge.description,
+            duration: challenge.duration,
+            completed: challenge.completed,
+          };
+        }
+        return update;
+      });
+      localStorage.setItem("challenges", JSON.stringify(updateChallenge));
+      toast.success(
+        `You have succesfully completed the Challenge ${challengeObject.name}`,
+        {
+          duration: 3000,
+        }
+      );
+    }
   }
   return (
     <>
       {cardContent === null && null}
-      {cardContent !== null && (
+      {cardContent !== null && isCompleted === false && (
         <section className="CurrentChallenges__card">
           <h2 className="CurrentChallenges__card__heading">
             {cardContent.name}
