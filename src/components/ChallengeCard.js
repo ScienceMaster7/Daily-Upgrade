@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import toast from "react-hot-toast";
+import Confetti from "react-confetti";
 import todaysDate from "../services/todaysDate";
 
 export default function ChallengeCard({ challengeObject }) {
@@ -8,6 +9,7 @@ export default function ChallengeCard({ challengeObject }) {
   const [isStart, setIsStart] = useState(challengeObject.isStarted);
   const [isFinish, setIsFinish] = useState(challengeObject.isFinish);
   const [isCompleted, setIsCompleted] = useState(challengeObject.completed);
+  const [isConfettiRain, setIsConfettiRain] = useState(false);
 
   function handleOnClickDelete() {
     if (window.confirm("Do you realy want to delete this habit")) {
@@ -172,11 +174,19 @@ export default function ChallengeCard({ challengeObject }) {
           duration: 3000,
         }
       );
+      setIsConfettiRain(true);
     }
   }
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsConfettiRain(false);
+    }, 5000);
+    return () => clearTimeout(timer);
+  }, [isConfettiRain]);
   return (
     <>
       {cardContent === null && null}
+      {isConfettiRain && <Confetti recycle={false} />}
       {cardContent !== null && isCompleted === false && (
         <section className="CurrentChallenges__card">
           <h2 className="CurrentChallenges__card__heading">
