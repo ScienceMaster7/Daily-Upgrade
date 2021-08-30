@@ -1,6 +1,9 @@
 import { useState } from "react";
+import toast from "react-hot-toast";
+import todaysDate from "../services/todaysDate";
 
 export default function ChallengeCard({ challengeObject }) {
+  const today = todaysDate();
   const [cardContent, setCardContent] = useState(challengeObject);
   const [isStart, setIsStart] = useState(challengeObject.isStarted);
   // const [isFinish, setIsFinish] = useState(false);
@@ -27,7 +30,9 @@ export default function ChallengeCard({ challengeObject }) {
           description: challengeObject.description,
           duration: challengeObject.duration,
           currentDuration: challengeObject.duration,
+          startDate: today,
           isStarted: true,
+          isDone: false,
         };
         setCardContent(update);
       } else {
@@ -62,13 +67,35 @@ export default function ChallengeCard({ challengeObject }) {
     const updatedChallenge = challenges.map((challenge) => {
       let update;
       if (challenge.name === challengeObject.name) {
-        update = {
-          name: challengeObject.name,
-          description: challengeObject.description,
-          duration: challengeObject.duration,
-          currentDuration: Number(challengeObject.currentDuration) - 1,
-          isStarted: true,
-        };
+        if (challenge.startDate === today && challenge.isDone === false) {
+          update = {
+            name: challenge.name,
+            description: challenge.description,
+            duration: challenge.duration,
+            currentDuration: Number(challenge.currentDuration) - 1,
+            startDate: challenge.startDate,
+            isStarted: true,
+            isDone: true,
+            doneDate: today,
+          };
+        } else if (challenge.doneDate !== today && challenge.isDone === false) {
+          update = {
+            name: challenge.name,
+            description: challenge.description,
+            duration: challenge.duration,
+            currentDuration: Number(challenge.currentDuration) - 1,
+            startDate: challenge.startDate,
+            isStarted: true,
+            isDone: true,
+            doneDate: today,
+          };
+        } else {
+          update = challenge;
+          toast("You already did this challenge today, comeback tomorrow.", {
+            duration: 3000,
+            icon: "❌",
+          });
+        }
         setCardContent(update);
       } else {
         update = challenge;
