@@ -34,7 +34,23 @@ export default function ChallengeCard({ challengeObject }) {
     localStorage.setItem("challenges", JSON.stringify(updatedChallenge));
   }
   function handleOnClickReset() {
-    console.log("reset");
+    setIsStart(false);
+    const challenges = JSON.parse(localStorage.getItem("challenges"));
+    const updatedChallenge = challenges.map((challenge) => {
+      let update;
+      if (challenge.name === challengeObject.name) {
+        update = {
+          name: challengeObject.name,
+          description: challengeObject.description,
+          duration: challengeObject.duration,
+          isStarted: false,
+        };
+      } else {
+        update = challenge;
+      }
+      return update;
+    });
+    localStorage.setItem("challenges", JSON.stringify(updatedChallenge));
   }
   function handleOnClickDone(params) {
     console.log("Done");
