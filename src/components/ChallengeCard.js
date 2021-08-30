@@ -164,6 +164,7 @@ export default function ChallengeCard({ challengeObject }) {
             description: challenge.description,
             duration: challenge.duration,
             completed: challenge.completed,
+            completionDay: challenge.completionDay,
           };
         }
         return update;
