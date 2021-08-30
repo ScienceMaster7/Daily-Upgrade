@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 export default function ChallengeCard({ challengeObject }) {
+  const [cardContent, setCardContent] = useState(challengeObject);
   const [isStart, setIsStart] = useState(challengeObject.isStarted);
   // const [isFinish, setIsFinish] = useState(false);
   function handleOnClickDelete() {
@@ -13,6 +14,7 @@ export default function ChallengeCard({ challengeObject }) {
 
       localStorage.setItem("challenges", JSON.stringify(updatedChallenges));
     }
+    setCardContent(null);
   }
   function handleOnClickStart() {
     setIsStart(true);
@@ -24,8 +26,10 @@ export default function ChallengeCard({ challengeObject }) {
           name: challengeObject.name,
           description: challengeObject.description,
           duration: challengeObject.duration,
+          currentDuration: challengeObject.duration,
           isStarted: true,
         };
+        setCardContent(update);
       } else {
         update = challenge;
       }
@@ -45,6 +49,7 @@ export default function ChallengeCard({ challengeObject }) {
           duration: challengeObject.duration,
           isStarted: false,
         };
+        setCardContent(update);
       } else {
         update = challenge;
       }
@@ -52,59 +57,81 @@ export default function ChallengeCard({ challengeObject }) {
     });
     localStorage.setItem("challenges", JSON.stringify(updatedChallenge));
   }
-  function handleOnClickDone(params) {
-    console.log("Done");
+  function handleOnClickDone() {
+    const challenges = JSON.parse(localStorage.getItem("challenges"));
+    const updatedChallenge = challenges.map((challenge) => {
+      let update;
+      if (challenge.name === challengeObject.name) {
+        update = {
+          name: challengeObject.name,
+          description: challengeObject.description,
+          duration: challengeObject.duration,
+          currentDuration: Number(challengeObject.currentDuration) - 1,
+          isStarted: true,
+        };
+        setCardContent(update);
+      } else {
+        update = challenge;
+      }
+      return update;
+    });
+    localStorage.setItem("challenges", JSON.stringify(updatedChallenge));
   }
   // function handleOnClickFinish(params) {
   //   console.log("Finish")
   // }
   return (
-    <section className="CurrentChallenges__card">
-      <h2 className="CurrentChallenges__card__heading">
-        {challengeObject.name}
-      </h2>
-      <p className="CurrentChallenges__card__text">
-        {challengeObject.description}
-      </p>
+    <>
+      {cardContent === null && null}
+      {cardContent !== null && (
+        <section className="CurrentChallenges__card">
+          <h2 className="CurrentChallenges__card__heading">
+            {cardContent.name}
+          </h2>
+          <p className="CurrentChallenges__card__text">
+            {cardContent.description}
+          </p>
 
-      {!isStart && (
-        <>
-          <p className="CurrentChallenges__card__text">
-            Duration: {challengeObject.duration} Days
-          </p>
-          <button
-            onClick={handleOnClickDelete}
-            className="CurrentChallenges__card__button-decline"
-          >
-            Delete
-          </button>
-          <button
-            onClick={handleOnClickStart}
-            className="CurrentChallenges__card__button-accept"
-          >
-            Start
-          </button>
-        </>
+          {!isStart && (
+            <>
+              <p className="CurrentChallenges__card__text">
+                Duration: {cardContent.duration} Days
+              </p>
+              <button
+                onClick={handleOnClickDelete}
+                className="CurrentChallenges__card__button-decline"
+              >
+                Delete
+              </button>
+              <button
+                onClick={handleOnClickStart}
+                className="CurrentChallenges__card__button-accept"
+              >
+                Start
+              </button>
+            </>
+          )}
+          {isStart && (
+            <>
+              <p className="CurrentChallenges__card__text">
+                Duration: {cardContent.currentDuration} Days
+              </p>
+              <button
+                onClick={handleOnClickReset}
+                className="CurrentChallenges__card__button-decline"
+              >
+                Reset
+              </button>
+              <button
+                onClick={handleOnClickDone}
+                className="CurrentChallenges__card__button-accept"
+              >
+                Done
+              </button>
+            </>
+          )}
+        </section>
       )}
-      {isStart && (
-        <>
-          <p className="CurrentChallenges__card__text">
-            Duration: {challengeObject.duration} Days
-          </p>
-          <button
-            onClick={handleOnClickReset}
-            className="CurrentChallenges__card__button-decline"
-          >
-            Reset
-          </button>
-          <button
-            onClick={handleOnClickDone}
-            className="CurrentChallenges__card__button-accept"
-          >
-            Done
-          </button>
-        </>
-      )}
-    </section>
+    </>
   );
 }
