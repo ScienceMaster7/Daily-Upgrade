@@ -155,6 +155,7 @@ export default function ChallengeCard({ challengeObject }) {
             description: challenge.description,
             duration: challenge.duration,
             completed: true,
+            completionDay: today.join("."),
           };
           setIsCompleted(true);
         } else {

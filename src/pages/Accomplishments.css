@@ -4,7 +4,16 @@
   align-items: center;
 }
 
-.Accomplishments__text {
+.Accomplishments__card {
+  text-align: center;
+  background-color: var(--primary-color);
+  color: var(--primary-text-color);
+  margin: 1rem;
   padding: 1rem;
+  width: 300px;
+}
+
+.Accomplishments__text {
+  padding: 0.5rem;
   font-size: var(--normal-text);
 }
