@@ -51,6 +51,7 @@ export default function ChallengeCard({ challengeObject }) {
             isStarted: true,
             isDone: false,
             isFinish: false,
+            completed: challenge.completed,
           };
         }
 
@@ -73,6 +74,7 @@ export default function ChallengeCard({ challengeObject }) {
           description: challengeObject.description,
           duration: challengeObject.duration,
           isStarted: false,
+          completed: challenge.completed,
         };
         setCardContent(update);
       } else {
@@ -97,6 +99,7 @@ export default function ChallengeCard({ challengeObject }) {
             isStarted: true,
             isDone: true,
             doneDate: today,
+            completed: challenge.completed,
           };
         } else if (challenge.doneDate !== today && challenge.isDone === false) {
           if (Number(challenge.currentDuration) === 2) {
@@ -110,6 +113,7 @@ export default function ChallengeCard({ challengeObject }) {
               isDone: true,
               doneDate: today,
               isFinish: true,
+              completed: challenge.completed,
             };
             setIsFinish(true);
           } else {
@@ -122,6 +126,7 @@ export default function ChallengeCard({ challengeObject }) {
               isStarted: true,
               isDone: true,
               doneDate: today,
+              completed: challenge.completed,
             };
           }
         } else {
@@ -131,6 +136,7 @@ export default function ChallengeCard({ challengeObject }) {
             icon: "❌",
           });
         }
+        console.log(update);
         setCardContent(update);
       } else {
         update = challenge;
