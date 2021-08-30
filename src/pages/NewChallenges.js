@@ -15,6 +15,7 @@ export default function NewChallenges() {
       name: challengeName,
       description: challengeDescription,
       duration: challengeDuration,
+      isStarted: false,
     };
 
     validateAndStore("challenges", newChallenge, challengeName);

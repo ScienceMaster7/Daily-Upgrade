@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 export default function ChallengeCard({ challengeObject }) {
-  const [isStart, setIsStart] = useState(false);
+  const [isStart, setIsStart] = useState(challengeObject.isStarted);
   // const [isFinish, setIsFinish] = useState(false);
   function handleOnClickDelete() {
     if (window.confirm("Do you realy want to delete this habit")) {
@@ -16,6 +16,22 @@ export default function ChallengeCard({ challengeObject }) {
   }
   function handleOnClickStart() {
     setIsStart(true);
+    const challenges = JSON.parse(localStorage.getItem("challenges"));
+    const updatedChallenge = challenges.map((challenge) => {
+      let update;
+      if (challenge.name === challengeObject.name) {
+        update = {
+          name: challengeObject.name,
+          description: challengeObject.description,
+          duration: challengeObject.duration,
+          isStarted: true,
+        };
+      } else {
+        update = challenge;
+      }
+      return update;
+    });
+    localStorage.setItem("challenges", JSON.stringify(updatedChallenge));
   }
   function handleOnClickReset() {
     console.log("reset");
