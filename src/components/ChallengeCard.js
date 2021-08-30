@@ -6,7 +6,8 @@ export default function ChallengeCard({ challengeObject }) {
   const today = todaysDate();
   const [cardContent, setCardContent] = useState(challengeObject);
   const [isStart, setIsStart] = useState(challengeObject.isStarted);
-  // const [isFinish, setIsFinish] = useState(false);
+  const [isFinish, setIsFinish] = useState(challengeObject.isFinish);
+
   function handleOnClickDelete() {
     if (window.confirm("Do you realy want to delete this habit")) {
       const challenges = JSON.parse(localStorage.getItem("challenges"));
@@ -25,15 +26,31 @@ export default function ChallengeCard({ challengeObject }) {
     const updatedChallenge = challenges.map((challenge) => {
       let update;
       if (challenge.name === challengeObject.name) {
-        update = {
-          name: challengeObject.name,
-          description: challengeObject.description,
-          duration: challengeObject.duration,
-          currentDuration: challengeObject.duration,
-          startDate: today,
-          isStarted: true,
-          isDone: false,
-        };
+        if (Number(challenge.duration) === 1) {
+          setIsFinish(true);
+          update = {
+            name: challengeObject.name,
+            description: challengeObject.description,
+            duration: challengeObject.duration,
+            currentDuration: challengeObject.duration,
+            startDate: today,
+            isStarted: true,
+            isDone: false,
+            isFinish: true,
+          };
+        } else {
+          update = {
+            name: challengeObject.name,
+            description: challengeObject.description,
+            duration: challengeObject.duration,
+            currentDuration: challengeObject.duration,
+            startDate: today,
+            isStarted: true,
+            isDone: false,
+            isFinish: false,
+          };
+        }
+
         setCardContent(update);
       } else {
         update = challenge;
@@ -79,16 +96,31 @@ export default function ChallengeCard({ challengeObject }) {
             doneDate: today,
           };
         } else if (challenge.doneDate !== today && challenge.isDone === false) {
-          update = {
-            name: challenge.name,
-            description: challenge.description,
-            duration: challenge.duration,
-            currentDuration: Number(challenge.currentDuration) - 1,
-            startDate: challenge.startDate,
-            isStarted: true,
-            isDone: true,
-            doneDate: today,
-          };
+          if (Number(challenge.currentDuration) === 2) {
+            update = {
+              name: challenge.name,
+              description: challenge.description,
+              duration: challenge.duration,
+              currentDuration: Number(challenge.currentDuration) - 1,
+              startDate: challenge.startDate,
+              isStarted: true,
+              isDone: true,
+              doneDate: today,
+              isFinish: true,
+            };
+            setIsFinish(true);
+          } else {
+            update = {
+              name: challenge.name,
+              description: challenge.description,
+              duration: challenge.duration,
+              currentDuration: Number(challenge.currentDuration) - 1,
+              startDate: challenge.startDate,
+              isStarted: true,
+              isDone: true,
+              doneDate: today,
+            };
+          }
         } else {
           update = challenge;
           toast("You already did this challenge today, comeback tomorrow.", {
@@ -104,9 +136,9 @@ export default function ChallengeCard({ challengeObject }) {
     });
     localStorage.setItem("challenges", JSON.stringify(updatedChallenge));
   }
-  // function handleOnClickFinish(params) {
-  //   console.log("Finish")
-  // }
+  function handleOnClickFinish(params) {
+    console.log("Finish");
+  }
   return (
     <>
       {cardContent === null && null}
@@ -149,12 +181,24 @@ export default function ChallengeCard({ challengeObject }) {
               >
                 Reset
               </button>
-              <button
-                onClick={handleOnClickDone}
-                className="CurrentChallenges__card__button-accept"
-              >
-                Done
-              </button>
+
+              {!isFinish && (
+                <button
+                  onClick={handleOnClickDone}
+                  className="CurrentChallenges__card__button-accept"
+                >
+                  Done
+                </button>
+              )}
+
+              {isFinish && (
+                <button
+                  onClick={handleOnClickFinish}
+                  className="CurrentChallenges__card__button-accept"
+                >
+                  Finish
+                </button>
+              )}
             </>
           )}
         </section>
