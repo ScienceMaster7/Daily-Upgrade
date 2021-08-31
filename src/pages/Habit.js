@@ -165,7 +165,7 @@ export default function Habit() {
                 Remaining time till Level {habitState[0] + 1}
               </p>
               <p className="Habit__text">{habitState[1]} Minutes.</p>
-              <button type="submit" className="Habit__button">
+              <button type="submit" className="Habit__submit-button">
                 Submit
               </button>
               <button
