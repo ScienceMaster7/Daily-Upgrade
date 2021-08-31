@@ -20,8 +20,8 @@ export default function ChallengeCard({ challengeObject }) {
       );
 
       localStorage.setItem("challenges", JSON.stringify(updatedChallenges));
+      setCardContent(null);
     }
-    setCardContent(null);
   }
   function handleOnClickStart() {
     setIsStart(true);
@@ -194,7 +194,7 @@ export default function ChallengeCard({ challengeObject }) {
 
   let dayOrDays;
 
-  if (Number(cardContent.duration) === 1) {
+  if (cardContent !== null && Number(cardContent.duration) === 1) {
     dayOrDays = "Day";
   } else {
     dayOrDays = "Days";
