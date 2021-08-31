@@ -191,6 +191,14 @@ export default function ChallengeCard({ challengeObject }) {
     }, 5000);
     return () => clearTimeout(timer);
   }, [isConfettiRain]);
+
+  let dayOrDays;
+
+  if (Number(cardContent.duration) === 1) {
+    dayOrDays = "Day";
+  } else {
+    dayOrDays = "Days";
+  }
   return (
     <>
       {cardContent === null && null}
@@ -207,7 +215,7 @@ export default function ChallengeCard({ challengeObject }) {
           {!isStart && (
             <>
               <p className="CurrentChallenges__card__text">
-                Duration: {cardContent.duration} Days
+                Duration: {cardContent.duration} {dayOrDays}
               </p>
               <button
                 onClick={handleOnClickDelete}
@@ -226,7 +234,7 @@ export default function ChallengeCard({ challengeObject }) {
           {isStart && (
             <>
               <p className="CurrentChallenges__card__text">
-                Duration: {cardContent.currentDuration} Days
+                Duration: {cardContent.currentDuration} {dayOrDays}
               </p>
               <button
                 onClick={handleOnClickReset}
