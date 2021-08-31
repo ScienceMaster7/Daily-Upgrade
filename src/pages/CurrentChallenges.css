@@ -16,7 +16,7 @@
   -moz-box-shadow: 10px 10px 5px 0px #4b4b4b;
 }
 
-.card:last-of-type {
+.CurrentChallenges__card:last-of-type {
   margin-bottom: 4rem;
 }
 

@@ -12,14 +12,16 @@ export default function Accomplishments() {
       setCards(undefined);
     } else {
       const habitCards = challenges.map((challenge, index) => {
-        return <AccomplishmentCard challengeObject={challenge} key={index} />;
+        return challenge.completed ? (
+          <AccomplishmentCard challengeObject={challenge} key={index} />
+        ) : null;
       });
       setCards(habitCards);
     }
   }, []);
   return (
     <>
-      {!cards && (
+      {(!cards || cards.includes(null)) && (
         <main className="Accomplishments__main">
           <p className="Accomplishments__text">No Accomplishments yet.</p>
         </main>
