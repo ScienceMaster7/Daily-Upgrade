@@ -11,6 +11,9 @@
   margin: 1rem;
   padding: 1rem;
   width: 300px;
+  box-shadow: 10px 10px 5px 0px #4b4b4b;
+  -webkit-box-shadow: 10px 10px 5px 0px #4b4b4b;
+  -moz-box-shadow: 10px 10px 5px 0px #4b4b4b;
 }
 
 .card:last-of-type {

@@ -14,7 +14,6 @@ export default function CurrentChallenges() {
       const habitCards = challenges.map((challenge, index) => {
         return <ChallengeCard challengeObject={challenge} key={index} />;
       });
-
       setCards(habitCards);
     }
   }, []);

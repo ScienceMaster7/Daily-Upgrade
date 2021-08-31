@@ -15,6 +15,8 @@ export default function NewChallenges() {
       name: challengeName,
       description: challengeDescription,
       duration: challengeDuration,
+      isStarted: false,
+      completed: false,
     };
 
     validateAndStore("challenges", newChallenge, challengeName);
@@ -51,7 +53,7 @@ export default function NewChallenges() {
             type="number"
             name="challengeDuration"
             id="challengeDuration"
-            placeholder="Challenge Duration"
+            placeholder="Challenge Duration in Days"
             min="1"
             max="100"
             autoComplete="off"

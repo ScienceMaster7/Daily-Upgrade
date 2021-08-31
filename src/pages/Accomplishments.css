@@ -4,7 +4,19 @@
   align-items: center;
 }
 
-.Accomplishments__text {
+.Accomplishments__card {
+  text-align: center;
+  background-color: var(--primary-color);
+  color: var(--primary-text-color);
+  margin: 1rem;
   padding: 1rem;
+  width: 300px;
+  box-shadow: 10px 10px 5px 0px #4b4b4b;
+  -webkit-box-shadow: 10px 10px 5px 0px #4b4b4b;
+  -moz-box-shadow: 10px 10px 5px 0px #4b4b4b;
+}
+
+.Accomplishments__text {
+  padding: 0.5rem;
   font-size: var(--normal-text);
 }
