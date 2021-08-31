@@ -136,7 +136,6 @@ export default function ChallengeCard({ challengeObject }) {
             icon: "❌",
           });
         }
-        console.log(update);
         setCardContent(update);
       } else {
         update = challenge;
