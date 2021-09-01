@@ -9,6 +9,10 @@
   text-decoration: none;
 }
 
+.Home__link:last-of-type {
+  margin-bottom: 5rem;
+}
+
 .Home__button {
   background-color: var(--primary-color);
   color: var(--primary-text-color);
