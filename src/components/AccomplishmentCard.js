@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 export default function AccomplishmentCard({ challengeObject }) {
   return (
     <>
@@ -13,3 +15,6 @@ export default function AccomplishmentCard({ challengeObject }) {
     </>
   );
 }
+AccomplishmentCard.propTypes = {
+  challengeObject: PropTypes.object,
+};
